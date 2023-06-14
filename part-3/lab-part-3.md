@@ -228,6 +228,115 @@ Let’s take a deeper look at this Event rule:
   <img alt="image3" src="./assets/images/buildInRules.png">
 </picture>
 
+Now we can see all details how this built-in Event rule is defined:
+- It detects a rapid increase in the values of the erroneous call rate metric relative to the values in the last 10 minutes
+- Relative metric value shift: 10%
+
+<picture>
+  <img alt="image3" src="./assets/images/configBuildInRules.png">
+</picture>
+
+So if the erroneous rate has stabilized after 10 minutes with a rate like 5%, this 5% has become a “new normal” and it won’t trigger any new “Issue” by this rule.
+
+But this sounds wired at first, right? But such design can capture the changes and significantly reduce the alert storm. And don’t forget, there are different rules for different use cases.
+
+If you conduct a quick search with keyword of “erroneous call”, there are more rules for different scenarios that you might be looking for:
+
+<picture>
+  <img alt="image3" src="./assets/images/searchRules.png">
+</picture>
+
+Similarly, click the one with “Entity type” as “Service”:
+
+<picture>
+  <img alt="image3" src="./assets/images/entityAsService.png">
+</picture>
+
+This rule namely “Erroneous call rate too high” is defined with a parameter: Error rate threshold = 50%.
+Obviously, our purposely “created” error rate is <5%, which won’t trigger this event rule.
+
+<picture>
+  <img alt="image3" src="./assets/images/errCallRate.png">
+</picture>
+
+
+But how if some of our services are really critical and the SLA of “error rate” is 0.5% or less? Simple answer is: we may need to customize our Event rule. Please read on.
+
+
+9. Customize Event rules
+
+A custom Event enables you to create issues or incidents based on an individual metric of any given entity, with desired configuration.
+Click the “New Event” to start:
+
+<picture>
+  <img alt="image3" src="./assets/images/newEvent.png">
+</picture>
+
+Fill up the form with these inputs.
+
+1. Event Details
+- Name: Custom – Student {n} - Erroneous call rate for critical services >= 0.5%
+- Description: Detects a consistently erroneous call rate for critical services >= 0.5%
+- Issue Severity: Critical
+- Incident: No, by default
+- Grace Period: 5 min
+
+2. Condition
+- Source: Build-in metrics
+- Entity type: Service
+- Metric: All calls > All Erroneous Call Rate
+- Time Window: 5 min
+- Aggregation: avg
+- Operator: ≥
+- Percentage: 0.5
+
+3. Scope
+- Apply on: Application Perspectives
+- Click “Add Application Perspectives” and pick our AP created in previous lab. Please pick exactly the one you created, with the right application name like “Student-{n} Robot Shop App”.
+
+<picture>
+  <img alt="image3" src="./assets/images/dataForCustomEvent.png">
+</picture>
+
+<picture>
+  <img alt="image3" src="./assets/images/dataForCustomEvent2.png">
+</picture>
+
+Then click the “Create” button.
+
+
+We can wait for a while, remember that the grace period we set was 5 min, and we should be able to see there is a Critical issue under Issues tab, which is in “active” status:
+
+<picture>
+  <img alt="image3" src="./assets/images/criticalIssue.png">
+</picture>
+
+Click into it and we can see the details.
+
+<picture>
+  <img alt="image3" src="./assets/images/criticalIssueDetail.png">
+</picture>
+
+As this Event rule detects the average of the erroneous rate within every 5
+min time window, it will keep on “active” status until the rate is <=0.5%.
+
+
+10. Pause the Event rules
+
+We can toggle the event rule to be active/paused.
+Let’s filter and list out our custom Event rule, click the pause button to disable it.
+
+<picture>
+  <img alt="image3" src="./assets/images/pauseEvent.png">
+</picture>
+
+
+**Takeaways**
+
+As you could see from this lab, Instana highlights incidents and offers full flexibility to detect anomalies by using hundreds of built-in Event rules or customized ones.
+
+The down-to-the-code analysis that brings together the calls, services, latencies, traces, logs etc. with a well-organized context for our troubleshooting can easily take us from the issue to the proper actions that fix the problems well within our committed SLAs.
+
 
 
 
