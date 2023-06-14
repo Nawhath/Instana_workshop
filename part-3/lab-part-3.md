@@ -338,6 +338,149 @@ As you could see from this lab, Instana highlights incidents and offers full fle
 The down-to-the-code analysis that brings together the calls, services, latencies, traces, logs etc. with a well-organized context for our troubleshooting can easily take us from the issue to the proper actions that fix the problems well within our committed SLAs.
 
 
+# Lab 3.2 – Alerts & Channels
+
+Key Concepts
+
+Alert
+Alert is an event when something abnormal detected by event rules and/or
+Instana’s internal anomaly detection engine.
+
+Alert Channel
+Alert Channel is the mechanism that the alert message is being sent through. Typically, this can be integrated with some commonly used alerting systems/channels like Email, Slack, PagerDuty, Google Chat etc., or even generic Webhook.
+
+Goal
+1. To understand what alert channels Instana supports out of the box
+2. To understand how to create an alert channel
+3. To understand how to define an alert with one or more alert channels
+
+
+Steps
+1. The alert channels Instana currently supports
+Click “Settings” -> “Alert Channels” -> “Add Alert Channel”, we can see what
+alert channels Instana currently supports.
+
+<picture>
+  <img alt="image3" src="./assets/images/alertChannel.png">
+</picture>
+
+In short, these alert channels and/or mechanisms are currently supported:
+
+<picture>
+  <img alt="image3" src="./assets/images/supportedChannel.png">
+</picture>
+
+
+2. Create an alert channel with email
+
+> NOTE: this cannot be done within our newly spun up Instana Server as the SMTP server hasn’t been set up yet. But this can be achieved if we’re using SaaS instances.
+
+The simplest alert channel might be email.
+
+Client “Add Alert Channel” button and select “Email” from the dropdown list:
+
+<picture>
+  <img alt="image3" src="./assets/images/addAlertChannel.png">
+</picture>
+
+
+We can simply key in two elements:
+- Name: whatever name makes sense to you, for example “My Email Alert Channel”
+- Emails: we can add as many as emails as you want
+
+<picture>
+  <img alt="image3" src="./assets/images/setChannelData.png">
+</picture>
+
+Then click the “Test Channel”, it will trigger a test event. In this Email Channel case, it will send out a test email to configured email(s), the content looks like this:
+
+<picture>
+  <img alt="image3" src="./assets/images/testChannel.png">
+</picture>
+
+
+3. Create an alert
+
+Click “Settings” -> “Alerts”, it will list down all created alerts. Click “New Alert” to start creating our own alert:
+
+<picture>
+  <img alt="image3" src="./assets/images/createAlert.png">
+</picture>
+
+
+Let’s fill up the form with:
+- Name: whatever name makes sense to you, for example, My Email Alert
+- Events: there are two types: Alert on Event Type(s); Alert on Event(s).
+
+  Let’s pick Alert on Event(s) for this lab;
+
+- Events: Let’s pick our newly created customized Event namely “Custom - Erroneous call rate for critical services >= 0.5%”
+- Scope: Let’s pick Application Perspectives with our own AP
+- Alert Channels:
+
+<picture>
+  <img alt="image3" src="./assets/images/alertData.png">
+</picture>
+
+
+So it eventually looks like this:
+
+<picture>
+  <img alt="image3" src="./assets/images/finalDataAlert.png">
+</picture>
+
+Now let’s click the “Create” button to create it.
+
+<picture>
+  <img alt="image3" src="./assets/images/createNewAlert.png">
+</picture>
+
+
+Please note that once it’s created, it’s enabled by default. We can disable or even delete it anytime by clicking the pause and delete buttons respectively.
+
+4. Let’s enable the previous Event rule
+
+At the end of “Lab 5 - Events, analytics and troubleshooting” we’ve disabled the Event rule and now let’s enable it:
+
+<picture>
+  <img alt="image3" src="./assets/images/enableEventRules.png">
+</picture>
+
+It can be enabled immediately.
+
+<picture>
+  <img alt="image3" src="./assets/images/enableNow.png">
+</picture>
+
+
+Almost at the same time, it will trigger the alert, with an email received:
+
+<picture>
+  <img alt="image3" src="./assets/images/trigerAlert.png">
+</picture>
+
+
+The link embedded in the email can bring us to the exact “crime scene” so that we can kick off the root cause analysis journey in the previous lab.
+
+As there is a grace period of 5 mins, the event can be appeared in the “Issues” too:
+
+<picture>
+  <img alt="image3" src="./assets/images/issueShown.png">
+</picture>
+
+
+**Takeaways**
+
+As you could see from this lab, Instana provides a series of out-of-the-box Alert Channels that can significantly simplify the way for SRE/operator to stay informed for potential issues – you may send “issues” through “normal” email, while urgent “incidents” through PagerDuty – the choice is all yours! We can easily integrate the events with the alerts so we, as the SRE/operator, can always be proactive.
+
+The integration capability of alerts also improves the observability while combining more operational data, like topology, to form a modern AIOps by using platforms like IBM Cloud Pak for Watson AIOps.
+
+
+
+# Lab 3.3 – SLO Monitoring with Custom Dashboard
+
+
+
 
 
 
