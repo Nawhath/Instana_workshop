@@ -224,6 +224,9 @@ Let’s take a deeper look at this Event rule:
 - Filter with “built-in” rule, with search keyword of “Sudden increase in erroneous call rate”
 - Pick the one with “Service” type
 
+<picture>
+  <img alt="image3" src="./assets/images/buildInRules.png">
+</picture>
 
 
 
