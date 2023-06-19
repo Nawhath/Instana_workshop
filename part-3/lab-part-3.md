@@ -1063,7 +1063,7 @@ Let’s fill up the form with:
   - Operator: <=
   - Value: 30
 - Scope
-  - pply on: All available entities
+  - Apply on: All available entities
 
 Then click the “Create” button to create. And you should have learned how to define an Alert and Alert Channel with the Event Rule bound to it, or refer to lab “Alerts & Channels” for details.
 
