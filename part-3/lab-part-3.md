@@ -690,30 +690,190 @@ Note: you may move to the widget and some buttons will be appeared, by which we 
 
 6. Save the custom dashboard
 
+You may add more widgets too, if you want.
+But don’t forget, click the “Save changes” to save the custom dashboard!
+
+<picture>
+  <img alt="image3" src="./assets/images/saveChane.png">
+</picture>
+
+
+7. More options for our custom dashboard
+
+Once clicked the “…” button on top right, there are more:
+
+- TV Mode: This is to become “full screen” so it’s perfect to project it to TV.
+- Make Default: Make this dashboard as default in the landing page after login. But don’t worry, this is user-based preference so won’t impact others.
+- Edit Name: This is to edit the dashboard name
+- Edit As JSON: This is to edit the dashboard in JSON format – this is coolespecially when we’re editing some metric numbers.
+- Duplicate: This is to duplicate the dashboard.
+- Delete: This is to delete the dashboard.
+
+<picture>
+  <img alt="image3" src="./assets/images/moreDashboardOption.png">
+</picture>
+
+
+And by default, the custom dashboards are private, which means that only the author can see them. We can click the “Share” button to make it public.
+
+<picture>
+  <img alt="image3" src="./assets/images/privateDashboard.png">
+</picture>
+
+
+**Takeaways**
+
+As you could see from this lab, Instana provides a built-in support for how to define SLO-oriented widgets which can easily be part of our custom dashboards to visualize the most important part of SRE commitment: what the goal is and where we are.
+
+This lab didn’t show too much on how to custom “normal” widgets, which is a powerful tool for you to explore further to make your dashboards more meaningful if the built-in ones are not enough.
 
 
 
+# Lab 3.4 – RBAC & User Onboarding
+
+Before talking about RBAC and user onboarding, actually there is a prerequisite that we need to integrate Instana with an authentication system. Please refer to this doc for the supported standards: https://www.ibm.com/docs/en/instana-observability/current?topic=instana- configuring-authentication
+Built-in authentication with username (email address) and password is the default method securely provided by Instana and let’s assume we start from here. It’s directly available on SaaS but on-prem, you need to set up the SMTP section in “settings.hcl” and apply the changes accordingly.
+
+**Key Concepts**
+
+**Role-Based Access Control (RBAC)**
+
+Role-based access control is used to permit individual users to perform specific actions and get visibility to an access scope. Each user can be assigned to multiple groups, everyone coming with its associated permissions, from both groups and individual directly. In addition a group sets the access scope and you can configure the visible areas for the group members.
+
+**Permission Scopes**
+
+Permission Scope is a way to control a group of members whether some core Instana functionalities can be viewed in UI or not. These functionalities include:
+- Websites
+- Mobile Apps
+- Applications
+- Kubernetes
+
+**Permissions**
+
+Permissions are the known behaviors defined in the system that can be granted to a group. The permissions can be categorized by below types:
+- Access Control
+- Account Information
+- Applications
+- Custom Dashboards
+- Events
+- Extensions
+- Infrastructure
+
+**Product Area**
+
+Product Area is a concept to further control the instance level of the core functionalities. For example, A group can access Application Perspectives B and C, not others.
+
+**Goal**
+- To understand how Instana implements RBAC
+- To quickly walk through the process how to onboard a user
+
+**Steps**
+
+1. Create a new Group
+
+It’s always recommended to start from groups, instead of individual uses.
+There is a “Default” group. But let’s create more meaningful groups. For example:
+- Admins
+- App SRE
+- Infra SRE
+- Developers
+- etc.
+
+Let’s define a group, namely “Developers”, as an example. Click “Settings” -> “Groups”, click the “Add Group” button:
+
+<picture>
+  <img alt="image3" src="./assets/images/defineGroup.png">
+</picture>
 
 
+Let’s name it “Developers”, and pick our labs’ website and application as the areas:
 
+<picture>
+  <img alt="image3" src="./assets/images/devGroup1.png">
+</picture>
+
+<picture>
+  <img alt="image3" src="./assets/images/devGroup2.png">
+</picture>
+
+<picture>
+  <img alt="image3" src="./assets/images/devGroup3.png">
+</picture>
+
+So, we’ve granted very limited permission for this “Developers” group: they can configure and monitor only websites and applications.
+
+2. Invite a User
+
+Click “Users” -> “Invite User”, in the popup window key in your email and pick the newly created Group “Developers”:
+
+<picture>
+  <img alt="image3" src="./assets/images/inviteUser.png">
+</picture>
+
+
+And almost immediately, the invited user should receive an email and he/she
+can click the “Join Instana” and sign it up accordingly:
+
+<picture>
+  <img alt="image3" src="./assets/images/receiveEmail.png">
+</picture>
+
+
+**Takeaways**
+
+As you could see from this lab, Instana provides a sophisticated RBAC model to control the scopes and permissions for different groups, while still providing easy-to-use UX.
+
+We can define different groups (as roles), with proper permissions, and invite the right people to join it for better collaboration on Instana.
 
 # Lab 3.5 – Custom Metrics (e.g. Cert Expiry Check)
 
-## 1. Enable built-in statsd collector
+Sending ad-hoc / custom metrics might be a good way to extend the
+Instana’s capability.
+
+Basically, Instana’s agent acts as the “local collector” by providing RESTful API which accepts custom events, metrics, and tracing data, before sending back to the backend. There are quite some benefits by doing so, including simplicity to the senders, better data sending process between Instana agent and Instana Server, and the context correlation among infrastructure (e.g. host, sending processes).
+
+Please refer to doc for the capability: https://www.ibm.com/docs/en/obi/current?topic=apis-host-agent-rest-api
+
+The RESTful API offers more around custom events, tracing but not really metrics. Instana offers a cool way while ingesting custom metrics, besides the de-facto way of using Prometheus, by its “built-in statsd” as the Instana agent can act as a statsd collector daemon, and can receive metrics in the same way as a real statsd daemon. So, the route looks like: senders send custom metrics -> Instana agent’s built-in statsd collector -> Instana Server.
+
+**Key Concepts**
+
+**statsd**
+
+A network daemon that listens for statistics, like counters and timers, sent over UDP or TCP and sends aggregates to one or more pluggable backend services (e.g., Graphite).
+Link: https://github.com/statsd/statsd
+
+**Goal**
+
+- To understand how Instana ingests custom metrics, with a simple example of detecting Google Search’s website certificate expiry date
+- To understand how to utilize the custom metrics for purposes like custom dashboarding, and alerting
+
+**Steps**
+
+1. Enable built-in statsd collector
 
 Let's work in the "manage-to" Host VM.
 
 Firtly, log into the Ubuntu "VM" powered by `footloose`:
 
 ```sh
-$ footloose ssh root@ubuntu-0 -c footloose.yaml
+footloose ssh root@ubuntu-0 -c footloose.yaml
 ```
 
 Now, let's work in this Ubuntu "VM":
 
+We can enable built-in statsd collector daemon by simply adding a configuration file under the agent’s configuration folder:
+
+```sh
+<INSTANA_AGENT_ROOT>/etc/instana/ 
 ```
-# Enable agent's built-in statsd collector deamon
-root@ubuntu-0:~# cat > /opt/instana/agent/etc/instana/configuration-statsd.yaml <<EOF
+and it will be automatically hot reloaded without a manual restart of the agent process.
+
+
+
+Enable agent's built-in statsd collector deamon
+```sh
+cat > /opt/instana/agent/etc/instana/configuration-statsd.yaml <<EOF
 com.instana.plugin.statsd:
   enabled: true
   ports:
@@ -722,25 +882,62 @@ com.instana.plugin.statsd:
   bind-ip: "0.0.0.0" # all IPs by default
   flush-interval: 10 # in seconds
 EOF
-
-root@ubuntu-0:~# netstat -an|grep 8125
+```
+It will listen on port 8125, once the built-in statsd collector daemon is up:
+```sh
+netstat -an|grep 8125
 ```
 
-## 2. Let’s have a quick try
+output:
+udp     0 0 0.0.0.0:8125    0.0.0.0:\*
 
-```
-root@ubuntu-0:~# apt-get install netcat -y
+
+
+2. Let’s have a quick try
+
+Please make sure some tools are installed:
+- nc
+
+```sh
+apt-get install netcat -y
 ```
 
-```
-root@ubuntu-0:~# echo "hits:1|c" | nc -u -w1 127.0.0.1 8125
-root@ubuntu-0:~# echo "custom.metrics.my_metric_name:10|g|#host:ubuntu-0" | nc -u -w1 127.0.0.1 8125
+We can simply use nc to send very ad-hoc metrics, like:
+```sh
+echo "hits:1|c" | nc -u -w1 127.0.0.1 8125
 ```
 
-## 3. Create a simple script
+If no error occurs, it should work and we will walk you through how to view the custom metrics and utilize them for more interesting stuff like dashboarding, alerting.
 
+But for now, let’s have a check. Navigate the Infrastructure View and click any place of the Ubuntu VM -> click the Linux icon -> click the “Open Dashboard”:
+
+<picture>
+  <img alt="image3" src="./assets/images/vmInInfra.png">
+</picture>
+
+
+Scroll down to the bottom and we should be able to see the “Statsd Custom Metrics”:
+
+<picture>
+  <img alt="image3" src="./assets/images/customMetric.png">
+</picture>
+
+
+Please note that even the official statsd doesn’t support tags, but more and more distributions / implementations support tags well, so does Instana.
+
+So, we can send metrics with tags like like:
+
+```sh
+echo "custom.metrics.my_metric_name:10|g|#host:ubuntu-0" | nc -u -w1 127.0.0.1 8125
 ```
-root@ubuntu-0:~# cat > check-tls-cert-expiry.sh <<'EOF'
+
+3. Create a simple script
+
+We can create the sample script as “check-tls-cert-expiry.sh” and grant it execution permission by “chmod +x check-tls-cert-expiry.sh”.
+
+
+```sh
+cat > check-tls-cert-expiry.sh <<'EOF'
 #!/bin/bash
 
 TARGET="google.com:443";
@@ -778,11 +975,104 @@ echo "CertExpiresInDays:$expire_in_days|g" | nc -u -w1 127.0.0.1 8125
 EOF
 ```
 
-## 4. Run the script
+4. Run the script
 
-```
-root@ubuntu-0:~# chmod +x check-tls-cert-expiry.sh
+Please make sure some tools are installed:
+- OpenSSL
+- nc
 
-root@ubuntu-0:~# while true; do ./check-tls-cert-expiry.sh; sleep 5; done
+You can run the script with a simple infinite loop or make it a cronjob. For example:
+
+```sh
+chmod +x check-tls-cert-expiry.sh
+
+while true; do ./check-tls-cert-expiry.sh; sleep 5; done
 ```
+
+5. Let’s see where the custom metrics will be displayed
+
+The custom metrics can be viewed through the host:
+
+<picture>
+  <img alt="image3" src="./assets/images/viewCustomMetrics.png">
+</picture>
+
+
+6. Create widget to use it for dashboarding
+
+
+Add a widget into a custom dashboard, let’s pick “Big Number”:
+
+<picture>
+  <img alt="image3" src="./assets/images/bigNumber.png">
+</picture>
+
+
+Pick “Infrastructure & Platforms” as the Data Source:
+
+<picture>
+  <img alt="image3" src="./assets/images/infraPlatform.png">
+</picture>
+
+
+Search by our metric name, which is CertExpiresInDays in our case:
+
+<picture>
+  <img alt="image3" src="./assets/images/CertExpiresInDays.png">
+</picture>
+
+
+Others:
+- Aggregation: min
+- Formatter: Number
+- Name: Google Website Cert Expires in Days
+
+<picture>
+  <img alt="image3" src="./assets/images/bigNumberData.png">
+</picture>
+
+
+Click “Create” and then we can see a new widget within our custom
+dashboard with desired metrics highlighted:
+
+<picture>
+  <img alt="image3" src="./assets/images/newWidget.png">
+</picture>
+
+
+7. Create alert with it
+It might be a good idea to alert the team if the cert is expiring, say within 30 days. But how can we use such custom metrics for alerts, like what we did with built-in metrics? Let’s have a try.
+
+Firstly, let’s create an Event Rule. Click Settings from the menu item ->
+Events, and click “New Event”:
+
+<picture>
+  <img alt="image3" src="./assets/images/newEventSetting.png">
+</picture>
+
+Let’s fill up the form with:
+- Event Details:
+  - Name: whatever name makes sense to you, for example, Cert expiring in 30 days.
+  - Grace Period: 24h
+- Conditions
+  - Source: Custom metrics
+  - Entity Type: StatsD
+  - Metric: StatsD gauge CertExpiresInDays
+  - Time Window: 60 min
+  - Aggregation: min
+  - Operator: <=
+  - Value: 30
+- Scope
+  - pply on: All available entities
+
+Then click the “Create” button to create. And you should have learned how to define an Alert and Alert Channel with the Event Rule bound to it, or refer to lab “Alerts & Channels” for details.
+
+
+
+
+
+
+
+
+
 
