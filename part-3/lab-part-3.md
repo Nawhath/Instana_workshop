@@ -1010,6 +1010,14 @@ Add a widget into a custom dashboard, let’s pick “Big Number”:
 
 Pick “Infrastructure & Platforms” as the Data Source:
 
+> note: if Infrastructure & Platforms is not availble, add the following in Instana backend (manage-from) "setting.hcl".
+
+```sh
+feature "beeinstana" {
+  enabled=true
+}
+```
+
 <picture>
   <img alt="image3" src="./assets/images/infraPlatform.png">
 </picture>
