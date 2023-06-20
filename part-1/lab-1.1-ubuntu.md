@@ -78,7 +78,7 @@ sudo vi /etc/fstab
 
 Append the following line:
 ```sh
-     /dev/xvde1 /opt ext4 defaults,noatime 0 0
+/dev/xvde1 /opt ext4 defaults,noatime 0 0
 ```
 <picture>
   <img alt="image4" src="./assets/images/fstab.png">
