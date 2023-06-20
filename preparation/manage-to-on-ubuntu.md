@@ -67,10 +67,11 @@ sudo mkfs -t ext4 /dev/xvde1
 
 ```sh
 sudo mount -t ext4 /dev/xvde1 /opt
+```
 
+```sh
 vi /etc/fstab
      /dev/xvde1 /opt ext4 defaults,noatime 0 0
-
 ```
 <picture>
   <img alt="image4" src="./assets/images/fstab.png">
