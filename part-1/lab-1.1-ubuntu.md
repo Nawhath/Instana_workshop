@@ -73,7 +73,7 @@ sudo mount -t ext4 /dev/xvde1 /opt
 ```
 
 ```sh
-vi /etc/fstab
+sudo vi /etc/fstab
 ```
 
 Append the following line:
