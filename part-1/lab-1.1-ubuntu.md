@@ -32,6 +32,12 @@ Important Note - if the amount of CPUs or RAM is less than abovementioned specs,
 
 All components are containerized and deployed on Docker.
 
+<picture>
+  <img alt="image" src="./assets/images/architecture.png">
+</picture>
+
+
+
 ## 1. Access Instana-Server VM
 ```sh
 ssh itzuser@<Instana Server ip address> -p 2223 -i <ssh key file>
