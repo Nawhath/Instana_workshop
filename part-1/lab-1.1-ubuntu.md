@@ -322,8 +322,8 @@ checks and metrics to be collected for your Instana server.
 </picture>
 
 Copy the one-liner command, paste into the console, with small manual update to enable the INFRA mode, 
-by adding the -m infra part – note: the default will be APM mode which is not a desired 
-mode for self-monitoring:
+by adding the -m infra part 
+> note: the default will be APM mode which is not a desired mode for self-monitoring:
 
 <picture>
   <img alt="image" src="./assets/images/agent-3.png">
