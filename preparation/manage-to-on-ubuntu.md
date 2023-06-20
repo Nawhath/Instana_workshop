@@ -272,11 +272,7 @@ Creating cluster "kind" ...
  ✓ Joining worker nodes 🚜
 Set kubectl context to "kind-kind"
 You can now use your cluster with:
-```
-```sh
 kubectl cluster-info --context kind-kind
-```
-```sh
 Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
 ```
 
