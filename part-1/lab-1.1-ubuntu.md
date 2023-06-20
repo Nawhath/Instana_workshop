@@ -258,6 +258,8 @@ After around 30 min, depending on your download speed as it will download all In
   <img alt="image" src="./assets/images/init-complete.png">
 </picture>
 
+> Note: Please record of the username and password.
+
 ## 6. First login
 
 By following the info printed out once the installation is done, we can login to Instana:
