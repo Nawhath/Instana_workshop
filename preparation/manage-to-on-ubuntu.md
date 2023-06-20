@@ -365,6 +365,8 @@ Log into any of the VMs
 footloose ssh root@ubuntu-0 -c footloose.yaml
 ```
 
+Output
+```sh
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-144-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -381,8 +383,10 @@ individual files in /usr/share/doc/*/copyright.
 
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
+***
+```
 
+You have completed the preparation for the Manage-To VM.
 ```sh
 exit
-
 ```
