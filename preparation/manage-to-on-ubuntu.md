@@ -40,6 +40,8 @@ ssh itzuser@<manage-to ip address> -p 2223 -i <ssh key file>
 
 ## Mount additional disk space
 ```sh
+sudo -i
+
 lsblk
 ```
 
