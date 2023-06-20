@@ -85,14 +85,14 @@ vi /etc/fstab
 
 Remove some legacy components, if any
 ```sh
-$ sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 It is O.K if you see "Unable to locate package docker-engine"
 
 If there is a need to purge the previous failed Docker install
 ```sh
-$ sudo apt-get purge docker-ce docker-ce-cli containerd.io
+sudo apt-get purge docker-ce docker-ce-cli containerd.io
 ```
 
 Update the apt package index and install packages to allow apt to use a repository over HTTPS:
