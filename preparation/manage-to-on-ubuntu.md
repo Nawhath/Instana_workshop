@@ -67,8 +67,11 @@ sudo mkfs -t ext4 /dev/xvde1
 
 ```sh
 sudo mount -t ext4 /dev/xvde1 /opt
+
+lsblk
 ```
 
+To set the mounting permanently, add the row into /etc/fstab
 ```sh
 vi /etc/fstab
      /dev/xvde1 /opt ext4 defaults,noatime 0 0
