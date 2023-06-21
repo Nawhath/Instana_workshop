@@ -100,7 +100,7 @@ Now Instana will automatically generate some code snippet for us which can be ea
 Note:
   1. We can always check out this info within the website’s configuration anytime later.
   2. There are some important elements we will use, like the reporting URL and key.
-  3. Record the reporting URL and 
+  3. Record the reporting URL and key. 
 
 
 ## 2. Install Robot-Shop website
@@ -144,7 +144,8 @@ Note:
 2. If we updated something for the Helm Chart config, we can use “helm upgrade” with
 the updated parameters to update the application.
 
-Check out the pods deployed (wait 5-8 min)
+Check out the pods deployed (wait 5-8 min). The rating and shipping pod will take much longer to complete. Especially the shipping pod.
+
 ```sh
 kubectl get pod -n robot-shop
 ```
@@ -221,11 +222,15 @@ there is a ending slash in the 'reportingUrl'
 cat /usr/share/nginx/html/eum.html
 ```
 
+Exist the web pod
+```sh
+exit
+```
+
 Please note that we actually don’t need to access the app directly from your browser, especially when you access your VM through another bastion VM. But if you want to expose the newly deployed application in “Kind”-powered cluster for external access, there are some ways (e.g. Ingress with dedicated ports declared while “kind” is provisioned, as documented in official docs here), but exposing it by using a “socat” might be the simplest way to achieve.
 
 
 Expose the app if you want – this is optional for the lab
-Open a terminal
 
 Install socat
 ```sh
@@ -243,6 +248,12 @@ kubectl get svc -n robot-shop
 ```
 
 Get the nodeport for web service, node-port.
+
+<picture>
+  <img alt="image3" src="./assets/images/exposeRobot.png">
+</picture>
+
+
 Open another terminal to run the following command. The terminal needs to be kept there if you want to browse the app.
 ```sh
 socat TCP4-LISTEN:80,fork TCP4: <node-ip>:<node-port>
