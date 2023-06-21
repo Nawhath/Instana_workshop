@@ -703,6 +703,12 @@ We can trace the logs too
 journalctl -flu instana-agent
 ```
 
+Exit Centos.
+```sh
+exit
+```
+
+
 ## 9. View them in the infrastructure view
 
 
@@ -719,7 +725,7 @@ show only something match the keyword, which is a zone:
   <img alt="image3" src="./assets/images/infraQuery.png">
 </picture>
 
-And we can use “advanced” filters too, like “entity.zone:"Student*" *and “entity.type:httpd” so that we can precisely locate/query desired objects within our IT landscape:
+And we can use “advanced” filters too, like, entity.zone:"Student\*" and entity.type:httpd so that we can precisely locate/query desired objects within our IT landscape:
 
 <picture>
   <img alt="image3" src="./assets/images/infraAdvanceFilter.png">
@@ -781,7 +787,7 @@ Sensors are the “plugin”s within the one-agent design of Instana Agent, and 
   <img alt="image3" src="./assets/images/sensors.png">
 </picture>
 
-Instana provides Git-based configuration management, aka GitOps, experience too by simply specifying the remote Git repo. How this Git repo should look like? Have a look at this extremely simple Git repo sample: https://github.com/brightzheng100/instana-gitops-sample. Or check out this official doc namely “Git-based configuration management” for details.
+Instana provides Git-based configuration management, aka GitOps, experience too by simply specifying the remote Git repo. How this Git repo should look like? Have a look at this extremely simple Git repo sample: https://github.com/yangkwang/instana-gitops-sample. Or check out this official doc namely “Git-based configuration management” (https://www.ibm.com/docs/en/instana-observability/current?topic=agents-git-based-configuration-management) for details.
 
 
 <picture>
@@ -799,7 +805,7 @@ As you could see from this lab, Instana helps SRE/operator generate the agent in
 
 Bright Zheng has co-authored an article, with a Red Hatter in APAC region, to cover the synergy between Instana and Ansible, do check it out too to see how real world use cases can be easily addressed: https://developer.ibm.com/articles/automation-powered-aiops/
 
-And the powerful architecture of one-agent, with the huge ecosystem of the sensors for hundreds of supported technologies brings in intelligent discovery for any potential technologies we adopt along the way, without a need to re- configure from time to time, which dramatically reduces the operational effort. You may check out this doc for currently supported technologies: https://www.instana.com/docs/ecosystem/
+And the powerful architecture of one-agent, with the huge ecosystem of the sensors for hundreds of supported technologies brings in intelligent discovery for any potential technologies we adopt along the way, without a need to re- configure from time to time, which dramatically reduces the operational effort. You may check out this doc for currently supported technologies: https://www.ibm.com/docs/en/instana-observability/current?topic=configuring-monitoring-supported-technologies
 
 The out-of-the-box integration of Git repo enables us to embrace GitOps for a better day 2 configuration management experience.
 
@@ -808,23 +814,27 @@ The out-of-the-box integration of Git repo enables us to embrace GitOps for a be
 **Key Concepts**
 
 **Application**
+
 An application for APM tools is a static set of code runtimes (e.g. JVM or CLR) that are monitored using an agent. Normally the application is defined as a configuration parameter on each agent.
 Instana introduces the next generation of APM with its application hierarchy of services, endpoints, and application perspectives across them. The main goal is to simplify the monitoring of your business' service quality. Based on the data Instana collects from traces and component sensors, we discover your application landscape directly from the services actually being implemented.
 
 **Application Perspectives**
+
 Application perspectives enable you to tailor your view of an application and to capture the type of semantics and information you need to optimize the applications and services you are responsible for. An application perspective represents a set of services and endpoints that are defined by a shared context and is declared using tags.
 
 **Goal**
+
 1. To understand how to define an application in Instana
 2. To walk through the built-in dashboards and metrics
 
 **Steps**
+
 1. Create Application Perspectives (AP) through the wizard
 
 Click the Instana icon at the top left to start – or simply click the
 “Application” menu item to jump into applications directly:
 
-Follow by Click “New Application Perspective” under “Applications” section:
+Follow by Clicking "Add" and then “New Application Perspective” under “Applications” section:
 
 <picture>
   <img alt="image3" src="./assets/images/createAppPerspective.png">
