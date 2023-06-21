@@ -66,13 +66,9 @@ sudo mkfs -t ext4 /dev/xvde1
 ```sh
 sudo mount -t ext4 /dev/xvde1 /opt
 
-lsblk
-```
-
-To set the mounting permanently, add the row into /etc/fstab
-```sh
 vi /etc/fstab
      /dev/xvde1 /opt ext4 defaults,noatime 0 0
+
 ```
 <picture>
   <img alt="image4" src="./assets/images/fstab.png">
@@ -83,14 +79,14 @@ vi /etc/fstab
 
 Remove some legacy components, if any
 ```sh
-sudo apt-get remove docker docker-engine docker.io containerd runc
+$ sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 It is O.K if you see "Unable to locate package docker-engine"
 
 If there is a need to purge the previous failed Docker install
 ```sh
-sudo apt-get purge docker-ce docker-ce-cli containerd.io
+$ sudo apt-get purge docker-ce docker-ce-cli containerd.io
 ```
 
 Update the apt package index and install packages to allow apt to use a repository over HTTPS:
@@ -166,8 +162,8 @@ sudo usermod -aG docker $USER
 
 > Note: Please re-login to the VM to take effect.
 
-Try running docker without sudo
 ```sh
+# Try running docker without sudo
 docker run hello-world
 ```
 
@@ -242,7 +238,7 @@ helm version --short
 Customize a kind-config.yaml file with 1 master 3 worker nodes
 You may spin up a minium cluster simply by: kind create cluster
 ```sh
-cat > kind-config.yaml <<EOF
+$ cat > kind-config.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -256,7 +252,7 @@ EOF
 Create the cluster using the file
 This make take a 2-10 minutes depending on your download speed
 ```sh
-kind create cluster --config kind-config.yaml
+$ kind create cluster --config kind-config.yaml
 ```
 
 Output:
@@ -272,7 +268,11 @@ Creating cluster "kind" ...
  ✓ Joining worker nodes 🚜
 Set kubectl context to "kind-kind"
 You can now use your cluster with:
+```
+```sh
 kubectl cluster-info --context kind-kind
+```
+```sh
 Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
 ```
 
@@ -280,7 +280,7 @@ Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/qui
 Verify the cluster
 Note: the nodes might be in “NotReady”, just wait for a while
 ```sh
-kubectl get nodes
+$ kubectl get nodes
 ```
 ```sh
 NAME                 STATUS   ROLES           AGE   VERSION
@@ -295,7 +295,7 @@ kind-worker3         Ready    <none>          64s   v1.25.2
 
 Create a YAML to define our VMs
 ```sh
-cat > footloose.yaml <<EOF
+$ cat > footloose.yaml <<EOF
 cluster:
   name: labs
   privateKey: labs-key
@@ -329,12 +329,12 @@ EOF
 
 Create a dedicated Docker network
 ```sh
-docker network create footloose-cluster
+$ docker network create footloose-cluster
 ```
 
 Spin up VMs
 ```sh
-footloose create -c footloose.yaml
+$ footloose create -c footloose.yaml
 ```
 ```sh
 Output:
@@ -349,7 +349,7 @@ INFO[0001] Connecting labs-centos-0 to the footloose-cluster network...
 
 Check it out
 ```sh
-footloose show -c footloose.yaml
+$ footloose show -c footloose.yaml
 ```
 
 ```sh
@@ -362,11 +362,9 @@ labs-centos-0   centos-0   0->{22 49155}        quay.io/footloose/centos7       
 
 Log into any of the VMs
 ```sh
-footloose ssh root@ubuntu-0 -c footloose.yaml
+$ footloose ssh root@ubuntu-0 -c footloose.yaml
 ```
 
-Output
-```sh
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-144-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -383,10 +381,8 @@ individual files in /usr/share/doc/*/copyright.
 
 Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
 applicable law.
-***
-```
 
-You have completed the preparation for the Manage-To VM.
 ```sh
-exit
+root@ubuntu-0:~# exit
+
 ```
