@@ -15,6 +15,10 @@
 
 4.Click "Save private key". Can use any name e.g "Target-puttySSHkey". 
 > note: Leave the passphrase empty.If prompted, click "yes".
+
+<picture>
+  <img alt="image" src="./assets/images/clicksavePrivateKey.png">
+</picture>
  
 <picture>
   <img alt="image" src="./assets/images/savePrivateKey.png">
