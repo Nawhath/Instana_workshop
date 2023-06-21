@@ -99,7 +99,8 @@ Now Instana will automatically generate some code snippet for us which can be ea
 
 Note:
   1. We can always check out this info within the website’s configuration anytime later.
-  2. The are some important elements we will use, like the reporting URL and key.
+  2. There are some important elements we will use, like the reporting URL and key.
+  3. Record the reporting URL and 
 
 
 ## 2. Install Robot-Shop website
@@ -153,9 +154,8 @@ kubectl get pod -n robot-shop
 </picture>
 
 
-Please note that if we use our exposed EUM endpoint at https://<IP>:446/eum/, 
-instead of the internal endpoint at http://<IP>:2999, 
-there is a small bug in the Robot Shop app around how to inject the “eum.url” at this line of code, when we expose the EUM endpoint at https://<URL>:<port>/eum/ - Stripping the ending slash will cause no data on EUM dashboard in this case:
+
+> Please note that if we use our exposed EUM endpoint at https://\<IP\>:446/eum/, instead of the internal endpoint at http://\<IP\>:2999, there is a small bug in the Robot Shop app around how to inject the “eum.url” at this line of code, when we expose the EUM endpoint at https://\<URL>:\<port\>/eum/ - Stripping the ending slash will cause no data on EUM dashboard in this case:
 
 
 <picture>
