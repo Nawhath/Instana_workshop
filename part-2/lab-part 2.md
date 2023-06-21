@@ -22,8 +22,8 @@ Goal
 Steps
 1. Landing page
 
-The URL for “normal” tenant, other than those “special” ones like “play-with”,
-will be structured like: https://\<Tenant Unit\>-\<Tenant Instance\>.instana.io
+The URL for “normal” tenant, other than those “special” ones like “play-with”, will be structured like: 
+https://\<Tenant Unit\>-\<Tenant Instance\>.instana.io
 
 Once we’ve logged into it and we can see the landing page, where it’s the
 default dashboard with below information:
