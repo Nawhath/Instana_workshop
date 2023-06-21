@@ -602,7 +602,7 @@ It’s actually ready to start but having some initial configuration might be a 
 Configure Zone
 ```sh
 touch /opt/instana/agent/etc/instana/configuration-zone.yaml 
-INSTANA_ZONE="Student-1-Zone" && \
+INSTANA_ZONE="Student-{n}-Zone" && \
 cat <<EOF | sudo tee /opt/instana/agent/etc/instana/configuration-zone.yaml
 # Hardware & Zone
 com.instana.plugin.generic.hardware:
@@ -644,6 +644,11 @@ apt-get install -y apache2
 systemctl start apache2
 ```
 
+Exist from Ubuntu
+```sh
+exit
+```
+
 Install Agent in the Centos VM.
 
 Log into the Centos VM
@@ -656,14 +661,15 @@ There is missing command in Centos and need to install.
 yum install which
 ```
 Install the agent.
+Paste YOUR generated one-liner installation script and run it
 ```sh
-curl -o setup_agent.sh https://setup.instana.io/agent && chmod 700 ./setup_agent.sh && sudo ./setup_agent.sh -a xxxxxxxxxxxxxxxxxx -d xxxxxxxxxxxxxxxxxx -t dynamic -e <Isntana Server IP>.nip.io:1444 -y
+curl -o setup_agent.sh https://setup.instana.io/agent && chmod 700 ./setup_agent.sh && sudo ./setup_agent.sh -a xxxxxxxxxxxxxxxxxx -d xxxxxxxxxxxxxxxxxx -t dynamic -e <Instana Server IP>.nip.io:1444 -y
 ```
 
 Configure zone
 ```sh
 touch /opt/instana/agent/etc/instana/configuration-zone.yaml
-INSTANA_ZONE="Student-1-Zone" && \
+INSTANA_ZONE="Student-{n}-Zone" && \
 cat <<EOF | sudo tee /opt/instana/agent/etc/instana/configuration-zone.yaml
 # Hardware & Zone
 com.instana.plugin.generic.hardware:
