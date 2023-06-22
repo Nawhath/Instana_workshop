@@ -97,7 +97,7 @@ Click any of the changes, we can see details like what are changed, and when:
 
 3. Browse the built-in event rules
 
-Built-in events are predefined health signatures based on integrated algorithms which help you to understand the health of your monitored system in real-time. There are hundreds of built-in event use cases and rules, please refer to this link for what they are: https://www.ibm.com/docs/en/instana-observability/current?topic=references- built-in-events-reference. Please note that, these built-in event rules not only cover the generic use cases, but also embed a lot of SRE knowledge and practices too for every specific component like public clouds, language runtimes, middleware, databases, etc.
+Built-in events are predefined health signatures based on integrated algorithms which help you to understand the health of your monitored system in real-time. There are hundreds of built-in event use cases and rules, please refer to this link for what they are: https://www.ibm.com/docs/en/instana-observability/current?topic=references-built-in-events-reference. Please note that, these built-in event rules not only cover the generic use cases, but also embed a lot of SRE knowledge and practices too for every specific component like public clouds, language runtimes, middleware, databases, etc.
 
 <picture>
   <img alt="image3" src="./assets/images/eventRules.png">
