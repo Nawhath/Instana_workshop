@@ -898,7 +898,7 @@ Now, let's work in this Ubuntu "VM":
 We can enable built-in statsd collector daemon by simply adding a configuration file under the agent’s configuration folder:
 
 ```sh
-<INSTANA_AGENT_ROOT>/etc/instana/ 
+/opt/instana/agent/etc/instana/ 
 ```
 and it will be automatically hot reloaded without a manual restart of the agent process.
 
@@ -922,7 +922,8 @@ netstat -an|grep 8125
 ```
 
 output:
-udp     0 0 0.0.0.0:8125    0.0.0.0:\*
+
+udp        0 0 0.0.0.0:8125        0.0.0.0:\*
 
 
 
@@ -958,7 +959,7 @@ Scroll down to the bottom and we should be able to see the “Statsd Custom Metr
 
 Please note that even the official statsd doesn’t support tags, but more and more distributions / implementations support tags well, so does Instana.
 
-So, we can send metrics with tags like like:
+So, we can send metrics with tags like:
 
 ```sh
 echo "custom.metrics.my_metric_name:10|g|#host:ubuntu-0" | nc -u -w1 127.0.0.1 8125
@@ -970,6 +971,7 @@ We can create the sample script as “check-tls-cert-expiry.sh” and grant it e
 
 
 ```sh
+cd ~/
 cat > check-tls-cert-expiry.sh <<'EOF'
 #!/bin/bash
 
@@ -1007,6 +1009,11 @@ echo "metrics generated: CertExpiresInDays:$expire_in_days|g"
 echo "CertExpiresInDays:$expire_in_days|g" | nc -u -w1 127.0.0.1 8125
 EOF
 ```
+
+```sh
+chmod +x check-tls-cert-expiry.sh
+```
+
 
 4. Run the script
 
