@@ -1,5 +1,9 @@
 # Instana Labs
 
+Time: 9:30am - 5:00pm (Lunch 12noon - 1pm)
+
+
+
 > Note:
   - IBM Box:
     - Please accept box invitation.
@@ -11,7 +15,7 @@
 
   - Lab material: https://github.com/yangkwang/Instana_workshop
 
-
+---------------------------
 
 Day 1
 - preparation
