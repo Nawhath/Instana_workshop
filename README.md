@@ -3,7 +3,7 @@
 > Note:
   - IBM Box:
     - Please accept box invitation.
-    - Box link: 
+    - Box link: https://ibm.ent.box.com/folder/214139504216
 
   - Please check your trainee’s identifier in "List of Attendee_Instana Workshop June.xlsx"
 
