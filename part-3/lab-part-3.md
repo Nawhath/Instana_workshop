@@ -1024,8 +1024,6 @@ Please make sure some tools are installed:
 You can run the script with a simple infinite loop or make it a cronjob. For example:
 
 ```sh
-chmod +x check-tls-cert-expiry.sh
-
 while true; do ./check-tls-cert-expiry.sh; sleep 5; done
 ```
 
