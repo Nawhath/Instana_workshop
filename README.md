@@ -1,9 +1,14 @@
 # Instana Labs' Scripts / Commands
 
-This repo contains the copy-paste friendly scripts/commands for my Instana hands-on labs.
+Labs:
 
-How to obtain it?
+Day 1
+- preparation
+  - ssh-with-putty.md (For Window user)
+  - manage-to-on-ubuntu.md
 
+- part-1 
+  - 
 ```sh
 git clone https://github.com/yangkwang/instana-handson-labs.git
 cd instana-handson-labs

@@ -110,7 +110,7 @@ We can achieve that by updating the “load-gen” we installed in “Lab2 – W
 Deploy the load-gen App
 
 ```sh
-$ kubectl -n robot-shop apply -f - <<EOF
+kubectl -n robot-shop apply -f - <<EOF
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -343,20 +343,25 @@ The down-to-the-code analysis that brings together the calls, services, latencie
 **Key Concepts**
 
 **Alert**
+
 Alert is an event when something abnormal detected by event rules and/or
 Instana’s internal anomaly detection engine.
 
 **Alert Channel**
+
 Alert Channel is the mechanism that the alert message is being sent through. Typically, this can be integrated with some commonly used alerting systems/channels like Email, Slack, PagerDuty, Google Chat etc., or even generic Webhook.
 
 **Goal**
+
 1. To understand what alert channels Instana supports out of the box
 2. To understand how to create an alert channel
 3. To understand how to define an alert with one or more alert channels
 
 
 **Steps**
+
 1. The alert channels Instana currently supports
+
 Click “Settings” -> “Alert Channels” -> “Add Alert Channel”, we can see what
 alert channels Instana currently supports.
 
@@ -413,6 +418,8 @@ Let’s fill up the form with:
 - Events: there are two types: Alert on Event Type(s); Alert on Event(s).
 
   Let’s pick Alert on Event(s) for this lab;
+
+> Note: Click "Add Events" button
 
 - Events: Let’s pick our newly created customized Event namely “Custom - Erroneous call rate for critical services >= 0.5%”
 - Scope: Let’s pick Application Perspectives with our own AP
@@ -500,7 +507,7 @@ While Instana provides comprehensive dashboards to support common use- cases and
 
 There are three custom dashboarding options with Instana:
 1. Build native custom dashboards from directly within Instana.
-2. Leverage Instana’s Grafana plug (https://www.instana.com/docs/ecosystem/grafana/) in when you'd like to combine Instana data with other data sources, or if you have advanced dashboarding needs.
+2. Leverage Instana’s Grafana plug-in (https://www.instana.com/docs/ecosystem/grafana/) when you'd like to combine Instana data with other data sources, or if you have advanced dashboarding needs.
 3. Query our Web REST API (https://www.instana.com/docs/api/web/) and build dashboards in the tool of your choice for complete flexibility.
 
 The goal of this lab is to cover scenario #1: to build native custom dashboard from directly within Instana, to cover the needs of building an SLO-oriented dashboard.
@@ -569,7 +576,7 @@ Hey, there is a dedicated SLO widget, let’s pick it and click “Next”:
 </picture>
 
 
-Let’s pick our own Application Perspective name for “Application Perspective User Journey / Offering”. In my case, it’s “Bright’s Robot Shop”:
+Let’s pick our own Application Perspective name for “Application Perspective - User Journey / Offering”. In my case, it’s “Bright’s Robot Shop”:
 
 <picture>
   <img alt="image3" src="./assets/images/pickRobotShop.png">
@@ -589,12 +596,17 @@ button to create one:
 
 
 Let’s define a “Service Latency” SLI with:
+
 SLI Customization:
 - Name: Service Latency - Catalogue Service
-- Type: Time-based SLI Entity:
+- Type: Time-based 
+
+SLI Entity:
 - Boundary: Inbound Calls
 - Service: catalogue
-- Endpoint: All Services Metric & Threshold:
+- Endpoint: All Services 
+
+Metric & Threshold:
 - Metric: Latency
 - Aggregation: 95th
 - Threshold (ms): 200
@@ -604,7 +616,7 @@ SLI Customization:
 </picture>
 
 
-Click “Create” button to create it, and click the “ SLI Management” to go
+Click “Create” button to create it, and click the “SLI Management” to go
 back to our widget configuration page:
 
 <picture>
@@ -612,13 +624,17 @@ back to our widget configuration page:
 </picture>
 
 
-And let’s select it, with below configuration: 
+And let’s select it, with below configuration:
+ 
 SLO Configuration:
 
 - Application Perspective: your AP’s name, e.g. Bright’s Robot Shop
 - Service Level Indicator: the one you just created, e.g. Service Latency - Catalogue Service
 - SLO Target: 99 %
-- Time Window: Dynamic time window Widget Name:
+- Time Window: Dynamic time 
+
+window Widget Name:
+
 - Name: SLO - Catalogue Service
 
 There is a good preview for how the SLO will look lick. Click “Create”
@@ -647,15 +663,24 @@ Now let’s
 
 
 Now let’s create the SLI with:
+
 SLI Customization:
+
 - Name: Event SLI - Bright's Robot Shop
-- Type: Event-based SLI Entity:
+- Type: Event-based 
+
+SLI Entity:
+
 - Boundary: Inbound Calls
 - Service: catalogue
 - Endpoint: All Services 
+
 Good Events:
+
 - Call Erroneous is false 
+
 Bad Events:
+
 - Call Erroneous is true OR Call Latency >=5000
 
 <picture>
@@ -668,11 +693,14 @@ Bad Events:
 And let’s select the newly created SLI and configure the widget as below: 
 
 SLO Configuration:
+
 - Application Perspective: your AP’s name, e.g. Bright’s Robot Shop
-- Service Level Indicator: the one you just created, e.g. Service Latency - Catalogue Service
+- Service Level Indicator: the one you just created, e.g. Event SLI - Bright's Robot Shop
 - SLO Target: 95 %
 - Time Window: Dynamic time window 
+
 Widget Name:
+
 - Name: SLO – Robot Shop Events
 
 <picture>
@@ -681,7 +709,8 @@ Widget Name:
 
 
 Click “Create” button and it will return to the custom dashboard.
-Note: you may move to the widget and some buttons will be appeared, by which we can move, edit, duplicate, delete the widget.
+
+> Note: you may move to the top right corner of the widget and some buttons will be appeared, by which we can move, edit, duplicate, delete the widget.
 
 <picture>
   <img alt="image3" src="./assets/images/createEventBase.png">
@@ -700,7 +729,7 @@ But don’t forget, click the “Save changes” to save the custom dashboard!
 
 7. More options for our custom dashboard
 
-Once clicked the “…” button on top right, there are more:
+At the top right corner of the dashboard, the “…” button, you may click to see more options:
 
 - TV Mode: This is to become “full screen” so it’s perfect to project it to TV.
 - Make Default: Make this dashboard as default in the landing page after login. But don’t worry, this is user-based preference so won’t impact others.
@@ -731,14 +760,15 @@ This lab didn’t show too much on how to custom “normal” widgets, which is 
 
 # Lab 3.4 – RBAC & User Onboarding
 
-Before talking about RBAC and user onboarding, actually there is a prerequisite that we need to integrate Instana with an authentication system. Please refer to this doc for the supported standards: https://www.ibm.com/docs/en/instana-observability/current?topic=instana- configuring-authentication
-Built-in authentication with username (email address) and password is the default method securely provided by Instana and let’s assume we start from here. It’s directly available on SaaS but on-prem, you need to set up the SMTP section in “settings.hcl” and apply the changes accordingly.
+Before talking about RBAC and user onboarding, actually there is a prerequisite that we need to integrate Instana with an authentication system. Please refer to this doc for the supported standards: https://www.ibm.com/docs/en/instana-observability/current?topic=instana-configuring-authentication.
+
+Built-in authentication with username (email address) and password is the default method securely provided by Instana and let’s assume we start from here. It’s directly available on SaaS but not on-prem, you need to set up the SMTP section in “settings.hcl” and apply the changes accordingly.
 
 **Key Concepts**
 
 **Role-Based Access Control (RBAC)**
 
-Role-based access control is used to permit individual users to perform specific actions and get visibility to an access scope. Each user can be assigned to multiple groups, everyone coming with its associated permissions, from both groups and individual directly. In addition a group sets the access scope and you can configure the visible areas for the group members.
+Role-based access control is used to permit individual users to perform specific actions and get visibility to an access scope. Each user can be assigned to multiple groups, everyone coming with its associated permissions, from both groups and individual. In addition, a group sets the access scope and you can configure the visible areas for the group members.
 
 **Permission Scopes**
 
@@ -801,6 +831,9 @@ Let’s name it “Developers”, and pick our labs’ website and application a
 </picture>
 
 So, we’ve granted very limited permission for this “Developers” group: they can configure and monitor only websites and applications.
+
+Click "Save" to save the new group.
+
 
 2. Invite a User
 
