@@ -29,6 +29,6 @@ Day 3
 - part-3
   - lab-part1.md
 
-- Stand and Deliver : Trainee will be presented in a group of 2 for 10 min. 
+- Stand and Deliver : Trainee will present in a group of 2 for 10 min. 
 
 
