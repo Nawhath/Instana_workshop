@@ -8,10 +8,10 @@ Lab Information:
 
   - Please accept box invitation.
   - Box link: [https://ibm.ent.box.com/folder/214139504216](https://ibm.ent.box.com/folder/214139504216)
-  - Contain access information to your respective VMs. (Target and Server VM)
-    - "Target" is the VM to be monitored by Instana. It is also called Managed-To VM.
-    - "Server" is the VM for Instana backend. It is also called Managed-From VM.
-  - Also contain two spreadsheets "List of Attendee_Instana Workshop June.xlsx" and "Labs progress.xlsx".
+    - Contain access information to your respective VMs. (Target and Server VM)
+      - "Target" is the VM to be monitored by Instana. It is also called Managed-To VM.
+      - "Server" is the VM for Instana backend. It is also called Managed-From VM.
+    - Also contain two spreadsheets "List of Attendee_Instana Workshop June.xlsx" and "Labs progress.xlsx".
 
 - Lab material: [https://github.com/yangkwang/Instana_workshop](https://github.com/yangkwang/Instana_workshop)
 
