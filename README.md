@@ -87,7 +87,7 @@ Run through Application monitoring - 30 min
 - Configure application monitoring for Robot-Shop
   ([Lab 2.4 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-24--application-monitoring))
 
-- Run through Infrastructure monitoring - 30 min
+Run through Infrastructure monitoring - 30 min
 
 Tea break - 30 min
 
