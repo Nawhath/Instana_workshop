@@ -18,10 +18,7 @@ Lab Information:
   - Please update your lab progress in "Labs progress.xlsx". Mark **"Done"** for the lab completed.
 
 
----------------------------
----------------------------
-
-Day 1
+#Day 1
   - Lab introduction - 30 min
     - Self Introduction - 15 min
     - Lab Enviroment - 10 min
