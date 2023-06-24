@@ -35,12 +35,12 @@ Day 1
 
   **Preparation**
 
-    - Prepare the Managed-To VM - 60 min
-      - ssh-with-putty.md (For Window user) 
-        (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md)
+    Prepare the Managed-To VM - 60 min
+      ssh-with-putty.md (For Window user) 
+      (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md)
 
-      - manage-to-on-ubuntu.md 
-        (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
+      manage-to-on-ubuntu.md 
+      (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
 
   Lunch - 60 min
 
