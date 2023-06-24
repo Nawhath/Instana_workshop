@@ -22,6 +22,9 @@ Lab Information:
 # Day 1
 Lab introduction - 30 min
   - Self Introduction - 15 min
+    - Name and Company
+    - Your role
+    - Expectation from the workshop
   - Lab Enviroment - 10 min
     - IBM Box
     - IBM Techzone
