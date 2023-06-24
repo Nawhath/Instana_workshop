@@ -1,7 +1,7 @@
 # Instana Labs
 
 Time: 9:30am - 5:00pm (Lunch 12noon - 1pm)
-```
+
 Lab Information:
   - IBM Box:
     - Please accept box invitation.
