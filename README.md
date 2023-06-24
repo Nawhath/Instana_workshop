@@ -22,42 +22,116 @@ Lab Information:
 ---------------------------
 
 Day 1
-- Lab introduction - 30 min
-  - Self Introduction - 15 min
-  - Lab Enviroment - 10 min
-    - IBM Box
-    - IBM Techzone
-  - End Goal - 5 min
-    - Demo environment
-    - Stand and deliver
+  - Lab introduction - 30 min
+    - Self Introduction - 15 min
+    - Lab Enviroment - 10 min
+      - IBM Box
+      - IBM Techzone
+    - End Goal - 5 min
+      - Demo environment
+      - Stand and deliver
+  - Instana Overview - 30 min
+  - Play with Instana - 30 min
 
-- Instana Overview - 30 min
+  **Preparation**
+    - Prepare the Managed-To VM - 60 min
+      - ssh-with-putty.md (For Window user) 
+        (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md)
+      - manage-to-on-ubuntu.md 
+        (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
 
-- Play with Instana - 30 min
+  Lunch - 60 min
 
-- Prepare the Managed-To VM - 60 min
-  - ssh-with-putty.md (For Window user) 
-    (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md)
-  - manage-to-on-ubuntu.md 
-    (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
+  - Instana Architecture and Deployment model - 60 min
 
-Lunch - 60 min
+  **Lab 1.1**
+    - Install Instana Backend (Server) - 60 min
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#lab-11--install-instana-server-manually) 
 
-- Instana Architecture and Deployment model - 30 min
+  Tea break - 30 min
 
-- Install Instana Backend (Server) and self monitoring 
-  - Part 1: lab-part1.md
-    (https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md)
+    - Self monitoring - 60 min
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#81-install-agent-for-instana)
+
+  Question and feedback - 30 min
+
 
 Day 2
-- part-2
-  - lab-part1.md
+  - Instana UI - 30 min
+  - Concept of End User Monitoring (EUM) - 15 min
+
+  **Lab 2.1** - 15 min
+    - Familiarize with Instana UI
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-21--a-quick-tour)
+
+  **Lab 2.2** - 30 min
+    - Setup Website monitoring on Robot-Shop
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-22--website-monitoring)
+
+  **Lab 2.3** - 60 min
+    - Deploy agents to monitor the kubernetes cluster and linux servers.
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-23--install--manage-agents)
+
+  Lunch - 60 min
+
+  - What is Application Perspective? - 15 min
+  - Transaction tracing - 30 min
+  - Run through Application monitoring - 30 min
+  
+  **Lab 2.4** - 30 min
+    - Configure application monitoring for Robot-Shop
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-24--application-monitoring)
+
+  - Run through Infrastrcture monitiring - 30 min
+
+  Tea break - 30 min
+
+  **Lab 2.5** - 60 min
+    - Infrastructure monitoring
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab25--infrastructure-monitoring)
+
+  Question and feedback - 30 min
+
 
 Day 3
-- part-3
-  - lab-part1.md
 
-- Stand and Deliver : Trainee will present in a group of 2 for 10 min. 
+  - Lets talk about Event, Analytics and how to troubleshoot a problem - 30 min
+  - How notifications are send? - 30 min
+
+  **Lab 3.1** - 60 min
+    - Try out and get familiarize with Instana eventing mechanism.
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-31--events-analytics-and-troubleshooting)
+
+  **Lab 3.2** - 30 min
+    - Try out and get familiarize with how alert is notified.
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-32--alerts--channels)
+
+  Lunch - 60 min
+
+  - Introduce Service Level Objective (SLO) and how it is use in Instata. - 15 min
+
+  **Lab 3.3** - 30 min
+    - Try out the configuration of SLO. 
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-33--slo-monitoring-with-custom-dashboard)
+
+  - Introduce RBAC - 15 min
+  
+  **Lab 3.4** - 30 min
+    - Create group and understand how usera are invited.
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-34--rbac--user-onboarding)
+
+  - How to create custom metrics? - 15 min
+
+  **Lab 3.5** - 30 min
+    - Create custom metrics and display them in dashboard as well as event rules.
+      (https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-34--rbac--user-onboarding)
+
+  Tea break and preparation for Stand and Delivery - 30 min
+
+  - Stand and Delivery - 90 min
+    - Group of 2
+      - Instana Overview and Demo using your setup
+
 
 ----------------------------
 
