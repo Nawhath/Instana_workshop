@@ -128,6 +128,8 @@ Tea break and preparation for Stand and Delivery - 30 min
   - Group of 2
     - Instana Overview and Demo using your setup
 
+
+---
 After the workshop please acquire and complete your IBM Instana Technology badges:
 [IBM Instana Technology badges](https://learn.ibm.com/course/view.php?id=9927)
 
