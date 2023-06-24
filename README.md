@@ -18,7 +18,7 @@ Lab Information:
   - Please update your lab progress in "Labs progress.xlsx". Mark **"Done"** for the lab completed.
 
 
-
+---------------------------
 ---------------------------
 
 Day 1
@@ -34,9 +34,11 @@ Day 1
   - Play with Instana - 30 min
 
   **Preparation**
+
     - Prepare the Managed-To VM - 60 min
       - ssh-with-putty.md (For Window user) 
         (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md)
+
       - manage-to-on-ubuntu.md 
         (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
 
@@ -45,7 +47,9 @@ Day 1
   - Instana Architecture and Deployment model - 60 min
 
   **Lab 1.1**
+
     - Install Instana Backend (Server) - 60 min
+
       (https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#lab-11--install-instana-server-manually) 
 
   Tea break - 30 min
@@ -55,7 +59,7 @@ Day 1
 
   Question and feedback - 30 min
 
-
+-------------------------------------------------------------
 Day 2
   - Instana UI - 30 min
   - Concept of End User Monitoring (EUM) - 15 min
@@ -92,7 +96,7 @@ Day 2
 
   Question and feedback - 30 min
 
-
+-----------------------------------------------------------------------------
 Day 3
 
   - Lets talk about Event, Analytics and how to troubleshoot a problem - 30 min
@@ -132,7 +136,7 @@ Day 3
     - Group of 2
       - Instana Overview and Demo using your setup
 
-
+----------------------------
 ----------------------------
 
 After the workshop please acquire and complete your IBM Instana Technology badges:
