@@ -13,7 +13,7 @@ Lab Information:
       - "Server" is the VM for Instana backend. It is also called Managed-From VM.
     - Also contain two spreadsheets "List of Attendee_Instana Workshop June.xlsx" and "Labs progress.xlsx".
 
-- Lab material: [https://github.com/yangkwang/Instana_workshop](https://github.com/yangkwang/Instana_workshop)
+- [Lab material](https://github.com/yangkwang/Instana_workshop)
 
 - Please check your trainee’s identifier (ID) in "List of Attendee_Instana Workshop June.xlsx"
 
