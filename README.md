@@ -9,11 +9,11 @@ Lab Information:
     - Contain access information to your respective VMs. (Target and Server VM)
       - "Target" is the VM to be monitored by Instana. It is also called Managed-To VM.
       - "Server" is the VM for Instana backend. It is also called Managed-From VM.
-    - Also contain two spreadsheets "List of Attendee_Instana Workshop June.xlsx" and "Labs progress.xlsx".
+    - Also contain two spreadsheets "List of Attendee\_Instana Workshop June.xlsx" and "Labs progress.xlsx".
 
-  - Lab material: https://github.com/yangkwang/Instana_workshop
+  - Lab material: https://github.com/yangkwang/Instana\_workshop
 
-  - Please check your trainee’s identifier (ID) in "List of Attendee_Instana Workshop June.xlsx"
+  - Please check your trainee’s identifier (ID) in "List of Attendee\_Instana Workshop June.xlsx"
 
   - Please update your lab progress in "Labs progress.xlsx". Mark **"Done"** for the lab completed.
 
