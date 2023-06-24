@@ -3,7 +3,9 @@
 Time: 9:30am to 5:00pm (Lunch 12noon to 1pm)
 
 Lab Information:
+
    \- IBM Box:
+
     \- Please accept box invitation.
     \- Box link: https://ibm.ent.box.com/folder/214139504216
     \- Contain access information to your respective VMs. (Target and Server VM)
