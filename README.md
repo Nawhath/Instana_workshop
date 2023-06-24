@@ -33,7 +33,7 @@ Day 1
   - Instana Overview - 30 min
   - Play with Instana - 30 min
 
-  **Preparation**
+  Preparation
 
     - Prepare the Managed-To VM - 60 min
       - ssh-with-putty.md (For Window user) 
