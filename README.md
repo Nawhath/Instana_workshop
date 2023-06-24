@@ -27,7 +27,7 @@ Lab introduction - 30 min
     - Expectation from the workshop
   - Lab Enviroment - 10 min
     - [IBM Box](https://ibm.ent.box.com/folder/214139504216)
-    - [IBM Techzone](https://techzone.ibm.com/my/workshops/view/646b057541e9fa001716ddf4https://techzone.ibm.com/my/workshops/view/646b057541e9fa001716ddf4)
+    - [IBM Techzone](https://techzone.ibm.com/my/workshops/view/646b057541e9fa001716ddf4)
   - End Goal - 5 min
     - Demo environment
     - Stand and deliver
