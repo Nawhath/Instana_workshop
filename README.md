@@ -28,7 +28,9 @@ Lab introduction - 30 min
   - End Goal - 5 min
     - Demo environment
     - Stand and deliver
+
 Instana Overview - 30 min
+
 Play with Instana - 30 min
 
 **Preparation**
