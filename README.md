@@ -55,6 +55,7 @@ Question and feedback - 30 min
 
 # Day 2
 Instana UI - 30 min
+
 Concept of End User Monitoring (EUM) - 15 min
 
 **Lab 2.1** - 15 min
@@ -72,7 +73,9 @@ Concept of End User Monitoring (EUM) - 15 min
 Lunch - 60 min
 
 What is Application Perspective? - 15 min
+
 Transaction tracing - 30 min
+
 Run through Application monitoring - 30 min
 
 **Lab 2.4** - 30 min
@@ -92,6 +95,7 @@ Question and feedback - 30 min
 # Day 3
 
 Let's talk about Event, Analytics and how to troubleshoot a problem - 30 min
+
 How notifications are sent? - 30 min
 
 **Lab 3.1** - 60 min
@@ -130,9 +134,9 @@ Tea break and preparation for Stand and Delivery - 30 min
 
 
 ---
-After the workshop please acquire and complete your IBM Instana Technology badges:
+> After the workshop please acquire and complete your IBM Instana Technology badges:
 [IBM Instana Technology badges](https://learn.ibm.com/course/view.php?id=9927)
 
-Leverage IBM Techzone tool for tests and POC environments.
+> Leverage IBM Techzone tool for tests and POC environments.
 [IBM Techzone](https://techzone.ibm.com/)
 
