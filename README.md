@@ -101,7 +101,7 @@ Question and feedback - 30 min
 
 Let's talk about Event, Analytics and how to troubleshoot a problem - 30 min
 
-How notifications are sent? - 30 min
+How are notifications sent? - 30 min
 
 **Lab 3.1** - 60 min
 - Try out and get familiarize with Instana eventing mechanism.
