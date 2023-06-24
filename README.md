@@ -22,12 +22,32 @@ Lab Information:
 ---------------------------
 
 Day 1
-- preparation
-  - ssh-with-putty.md (For Window user)
-  - manage-to-on-ubuntu.md
+- Lab introduction - 30 min
+  - Self Introduction - 15 min
+  - Lab Enviroment - 10 min
+    - IBM Box
+    - IBM Techzone
+  - End Goal - 5 min
+    - Demo environment
+    - Stand and deliver
 
-- part-1 
-  - lab-part1.md
+- Instana Overview - 30 min
+
+- Play with Instana - 30 min
+
+- Prepare the Managed-To VM - 60 min
+  - ssh-with-putty.md (For Window user) 
+    (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md)
+  - manage-to-on-ubuntu.md 
+    (https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
+
+Lunch - 60 min
+
+- Instana Architecture and Deployment model - 30 min
+
+- Install Instana Backend (Server) and self monitoring 
+  - Part 1: lab-part1.md
+    (https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md)
 
 Day 2
 - part-2
