@@ -20,7 +20,7 @@ Lab Information:
 - Please update your lab progress in "Labs progress.xlsx". Mark "Done" for the lab completed.
 
 # Day 1
-- Lab introduction - 30 min
+Lab introduction - 30 min
   - Self Introduction - 15 min
   - Lab Enviroment - 10 min
     - IBM Box
@@ -28,8 +28,8 @@ Lab Information:
   - End Goal - 5 min
     - Demo environment
     - Stand and deliver
-- Instana Overview - 30 min
-- Play with Instana - 30 min
+Instana Overview - 30 min
+Play with Instana - 30 min
 
 **Preparation**
 
@@ -39,7 +39,7 @@ Lab Information:
 
 Lunch - 60 min
 
-- Instana Architecture and Deployment model - 60 min
+Instana Architecture and Deployment model - 60 min
 
 **Lab 1.1**
 
@@ -54,8 +54,8 @@ Tea break - 30 min
 Question and feedback - 30 min
 
 # Day 2
-- Instana UI - 30 min
-- Concept of End User Monitoring (EUM) - 15 min
+Instana UI - 30 min
+Concept of End User Monitoring (EUM) - 15 min
 
 **Lab 2.1** - 15 min
 - Familiarize with Instana UI
@@ -71,9 +71,9 @@ Question and feedback - 30 min
 
 Lunch - 60 min
 
-- What is Application Perspective? - 15 min
-- Transaction tracing - 30 min
-- Run through Application monitoring - 30 min
+What is Application Perspective? - 15 min
+Transaction tracing - 30 min
+Run through Application monitoring - 30 min
 
 **Lab 2.4** - 30 min
 - Configure application monitoring for Robot-Shop
@@ -91,8 +91,8 @@ Question and feedback - 30 min
 
 # Day 3
 
-- Let's talk about Event, Analytics and how to troubleshoot a problem - 30 min
-- How notifications are sent? - 30 min
+Let's talk about Event, Analytics and how to troubleshoot a problem - 30 min
+How notifications are sent? - 30 min
 
 **Lab 3.1** - 60 min
 - Try out and get familiarize with Instana eventing mechanism.
@@ -104,19 +104,19 @@ Question and feedback - 30 min
 
 Lunch - 60 min
 
-- Introduce Service Level Objective (SLO) and how it is used in Instana. - 15 min
+Introduce Service Level Objective (SLO) and how it is used in Instana. - 15 min
 
 **Lab 3.3** - 30 min
 - Try out the configuration of SLO.
   ([Lab 3.3 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-33--slo-monitoring-with-custom-dashboard))
 
-- Introduce RBAC - 15 min
+Introduce RBAC - 15 min
 
 **Lab 3.4** - 30 min
 - Create group and understand how users are invited.
   ([Lab 3.4 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-34--rbac--user-onboarding))
 
-- How to create custom metrics? - 15 min
+How to create custom metrics? - 15 min
 
 **Lab 3.5** - 30 min
 - Create custom metrics and display them in dashboard as well as event rules.
