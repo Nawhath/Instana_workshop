@@ -77,9 +77,9 @@ Concept of End User Monitoring (EUM) - 15 min
 
 Lunch - 60 min
 
-What is Application Perspective? - 15 min
-
 Transaction tracing - 30 min
+
+What is Application Perspective? - 15 min
 
 Run through Application monitoring - 30 min
 
