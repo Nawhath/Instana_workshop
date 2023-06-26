@@ -64,85 +64,86 @@ Lab Information:
 ### Question and feedback - 30 min
 
 # Day 2
-Instana UI - 30 min
+### Instana UI - 30 min
 
-Concept of End User Monitoring (EUM) - 15 min
+### Concept of End User Monitoring (EUM) - 15 min
 
-**Lab 2.1** - 15 min
+### Lab 2.1 - 15 min
 - Familiarize with Instana UI
   ([Lab 2.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-21--a-quick-tour))
 
-**Lab 2.2** - 30 min
+### Lab 2.2* - 30 min
 - Setup Website monitoring on Robot-Shop
   ([Lab 2.2 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-22--website-monitoring))
 
-**Lab 2.3** - 60 min
+### Lab 2.3 - 60 min
 - Deploy agents to monitor the Kubernetes cluster and Linux servers.
   ([Lab 2.3 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-23--install--manage-agents))
 
-Lunch - 60 min
+### Lunch - 60 min
 
-Transaction tracing - 30 min
+### Transaction tracing - 30 min
 
-What is Application Perspective? - 15 min
+### What is Application Perspective? - 15 min
 
-Run through Application monitoring - 30 min
+### Run through Application monitoring - 30 min
 
-**Lab 2.4** - 30 min
+### Lab 2.4 - 30 min
 - Configure application monitoring for Robot-Shop
   ([Lab 2.4 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-24--application-monitoring))
 
-Run through Infrastructure monitoring - 30 min
+### Run through Infrastructure monitoring - 30 min
 
-Tea break - 30 min
+### Tea break - 30 min
 
-**Lab 2.5** - 60 min
+### Lab 2.5 - 60 min
 - Infrastructure monitoring
   ([Lab 2.5 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab25--infrastructure-monitoring))
 
-Question and feedback - 30 min
+### Question and feedback - 30 min
 
 # Day 3
 
-Let's talk about Event, Analytics and how to troubleshoot a problem - 30 min
+### Let's talk about Event, Analytics and how to troubleshoot a problem - 30 min
 
-How are notifications sent? - 30 min
+### How are notifications sent? - 30 min
 
-**Lab 3.1** - 60 min
+### Lab 3.1 - 60 min
 - Try out and get familiarize with Instana eventing mechanism.
   ([Lab 3.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-31--events-analytics-and-troubleshooting))
 
-**Lab 3.2** - 30 min
+### Lab 3.2 - 30 min
 - Try out and get familiarize with how alert is notified.
   ([Lab 3.2 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-32--alerts--channels))
 
-Lunch - 60 min
+### Lunch - 60 min
 
-Introduce Service Level Objective (SLO) and how it is used in Instana. - 15 min
+### Introduce Service Level Objective (SLO) and how it is used in Instana. - 15 min
 
-**Lab 3.3** - 30 min
+### Lab 3.3 - 30 min
 - Try out the configuration of SLO.
   ([Lab 3.3 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-33--slo-monitoring-with-custom-dashboard))
 
-Introduce RBAC - 15 min
+### Introduce RBAC - 15 min
 
-**Lab 3.4** - 30 min
+### Lab 3.4 - 30 min
 - Create group and understand how users are invited.
   ([Lab 3.4 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-34--rbac--user-onboarding))
 
-How to create custom metrics? - 15 min
+### How to create custom metrics? - 15 min
 
-**Lab 3.5** - 30 min
+### Lab 3.5 - 30 min
 - Create custom metrics and display them in dashboard as well as event rules.
   ([Lab 3.5 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-3/lab-part3.md#lab-34--rbac--user-onboarding))
 
-Tea break and preparation for Stand and Delivery - 30 min
+### Tea break and preparation for Stand and Delivery - 30 min
 
 - Stand and Delivery - 90 min
   - Group of 2
     - Instana Overview and Demo using your setup
 
 
+## Post workshop activities
 ---
 > After the workshop please acquire and complete your IBM Instana Technology badges:
 [IBM Instana Technology badges](https://learn.ibm.com/course/view.php?id=9927)
