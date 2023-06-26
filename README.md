@@ -40,6 +40,7 @@ Lab Information:
 ### Instana Overview - 30 min
 
 ### Play with Instana - 30 min
+- [Guided demo](https://play-with.instana.io/#/home)
 
 ### Preparation
 
