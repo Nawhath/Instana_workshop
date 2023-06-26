@@ -19,8 +19,13 @@ Lab Information:
 
 - Please update your lab progress in "Labs progress.xlsx". Mark "Done" for the lab completed.
 
+<picture>
+  <img alt="image" src="./assets/images/editExcel.png">
+</picture>
+
+
 # Day 1
-Lab introduction - 30 min
+## Lab introduction - 30 min
   - Self Introduction - 15 min
     - Name and Company
     - Your role
@@ -32,7 +37,7 @@ Lab introduction - 30 min
     - Demo environment
     - Stand and deliver
 
-Instana Overview - 30 min
+## Instana Overview - 30 min
 
 Play with Instana - 30 min
 
