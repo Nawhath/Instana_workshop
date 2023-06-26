@@ -17,7 +17,7 @@ Lab Information:
 
 - Please check your trainee’s identifier (ID) in "List of Attendee_Instana Workshop June.xlsx"
 
-- Please update your lab progress in "Labs progress.xlsx". Mark "Done" for the lab completed.
+- Please update your lab progress in [Labs progress.xlsx](https://ibm.ent.box.com/file/1246859343464). Mark "Done" for the lab completed.
 
 <picture>
   <img alt="image" src="./assets/images/editExcel.png">
@@ -72,7 +72,7 @@ Lab Information:
 - Familiarize with Instana UI
   ([Lab 2.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-21--a-quick-tour))
 
-### Lab 2.2* - 30 min
+### Lab 2.2 - 30 min
 - Setup Website monitoring on Robot-Shop
   ([Lab 2.2 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-2/lab-part2.md#lab-22--website-monitoring))
 
