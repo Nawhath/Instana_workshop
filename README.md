@@ -25,7 +25,7 @@ Lab Information:
 
 
 # Day 1
-## Lab introduction - 30 min
+### Lab introduction - 30 min
   - Self Introduction - 15 min
     - Name and Company
     - Your role
@@ -37,31 +37,31 @@ Lab Information:
     - Demo environment
     - Stand and deliver
 
-## Instana Overview - 30 min
+### Instana Overview - 30 min
 
-## Play with Instana - 30 min
+### Play with Instana - 30 min
 
-## Preparation
+### Preparation
 
 - Prepare the Managed-To VM - 60 min
   - [ssh-with-putty.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md) (For Window user)
   - [manage-to-on-ubuntu.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
 
-## Lunch - 60 min
+### Lunch - 60 min
 
-## Instana Architecture and Deployment model - 60 min
+### Instana Architecture and Deployment model - 60 min
 
-## Lab 1.1
+### Lab 1.1
 
 - Install Instana Backend (Server) - 60 min
   ([Lab 1.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#lab-11--install-instana-server-manually))
 
-## Tea break - 30 min
+### Tea break - 30 min
 
 - Self monitoring - 60 min
   ([Lab 1.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#81-install-agent-for-instana))
 
-## Question and feedback - 30 min
+### Question and feedback - 30 min
 
 # Day 2
 Instana UI - 30 min
