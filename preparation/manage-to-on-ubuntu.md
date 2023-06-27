@@ -81,14 +81,14 @@ vi /etc/fstab
 
 Remove some legacy components, if any
 ```sh
-$ sudo apt-get remove docker docker-engine docker.io containerd runc
+sudo apt-get remove docker docker-engine docker.io containerd runc
 ```
 
 It is O.K if you see "Unable to locate package docker-engine"
 
 If there is a need to purge the previous failed Docker install
 ```sh
-$ sudo apt-get purge docker-ce docker-ce-cli containerd.io
+sudo apt-get purge docker-ce docker-ce-cli containerd.io
 ```
 
 Update the apt package index and install packages to allow apt to use a repository over HTTPS:
@@ -240,7 +240,7 @@ helm version --short
 Customize a kind-config.yaml file with 1 master 3 worker nodes
 You may spin up a minium cluster simply by: kind create cluster
 ```sh
-$ cat > kind-config.yaml <<EOF
+cat > kind-config.yaml <<EOF
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
@@ -254,7 +254,7 @@ EOF
 Create the cluster using the file
 This make take a 2-10 minutes depending on your download speed
 ```sh
-$ kind create cluster --config kind-config.yaml
+kind create cluster --config kind-config.yaml
 ```
 
 Output:
@@ -282,7 +282,7 @@ Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/qui
 Verify the cluster
 Note: the nodes might be in “NotReady”, just wait for a while
 ```sh
-$ kubectl get nodes
+kubectl get nodes
 ```
 ```sh
 NAME                 STATUS   ROLES           AGE   VERSION
@@ -303,7 +303,7 @@ kind delete cluster -name <name to be deleted>
 
 Create a YAML to define our VMs
 ```sh
-$ cat > footloose.yaml <<EOF
+cat > footloose.yaml <<EOF
 cluster:
   name: labs
   privateKey: labs-key
@@ -337,12 +337,12 @@ EOF
 
 Create a dedicated Docker network
 ```sh
-$ docker network create footloose-cluster
+docker network create footloose-cluster
 ```
 
 Spin up VMs
 ```sh
-$ footloose create -c footloose.yaml
+footloose create -c footloose.yaml
 ```
 ```sh
 Output:
@@ -357,7 +357,7 @@ INFO[0001] Connecting labs-centos-0 to the footloose-cluster network...
 
 Check it out
 ```sh
-$ footloose show -c footloose.yaml
+footloose show -c footloose.yaml
 ```
 
 ```sh
@@ -370,7 +370,7 @@ labs-centos-0   centos-0   0->{22 49155}        quay.io/footloose/centos7       
 
 Log into any of the VMs
 ```sh
-$ footloose ssh root@ubuntu-0 -c footloose.yaml
+footloose ssh root@ubuntu-0 -c footloose.yaml
 ```
 
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 4.15.0-144-generic x86_64)
