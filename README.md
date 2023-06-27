@@ -55,6 +55,7 @@ Lab Information:
 ### Lab 1.1
 
 - Install Instana Backend (Server) - 60 min
+
   Work on Server VM: ([Lab 1.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#lab-11--install-instana-server-manually))
 
 ### Tea break - 30 min
