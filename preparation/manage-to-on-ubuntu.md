@@ -292,6 +292,12 @@ kind-worker2         Ready    <none>          51s   v1.25.2
 kind-worker3         Ready    <none>          64s   v1.25.2
 ```
 
+If there is a need to re-create the cluster.
+```sh
+kind get clusters
+kind delete cluster -name <name to be deleted>
+```
+
 ## Spin up “VM”s
 
 
