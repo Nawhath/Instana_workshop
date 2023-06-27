@@ -45,7 +45,8 @@ Lab Information:
 ### Preparation
 
 - Prepare the Managed-To (Target) VM - 60 min
-  - [ssh-with-putty.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md) (For Window user)
+  - [ssh-with-putty.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md) (For Window usera)
+  - For Window user, PowerShell can be used too. Download your ssh keys into your "Downloads" folder and follow the ssh command in the lab guide.
   - Work on Target VM: [manage-to-on-ubuntu.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md).
 
 ### Lunch - 60 min

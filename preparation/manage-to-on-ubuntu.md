@@ -38,6 +38,8 @@ Note: if you prefer your own Linux distribution, instead of documented Ubuntu, i
 ssh itzuser@<manage-to ip address> -p 2223 -i <ssh key file>
 ```
 
+> Note: For Window user, the ssh key file is in the "Downloads" folder that you downloaded from the Box.
+
 ## Mount additional disk space
 ```sh
 lsblk
