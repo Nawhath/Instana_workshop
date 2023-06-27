@@ -262,6 +262,12 @@ After around 30 min, depending on your download speed as it will download all In
 
 > Note: Please record of the username and password.
 
+If there is a need to re-initialise Instana, you may force a init again.
+
+```sh
+instana init --force
+```
+
 ## 6. First login
 
 By following the info printed out once the installation is done, we can login to Instana:
