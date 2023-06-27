@@ -44,9 +44,9 @@ Lab Information:
 
 ### Preparation
 
-- Prepare the Managed-To VM - 60 min
+- Prepare the Managed-To (Target) VM - 60 min
   - [ssh-with-putty.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/ssh-with-putty.md) (For Window user)
-  - [manage-to-on-ubuntu.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md)
+  - Work on Target VM: [manage-to-on-ubuntu.md](https://github.com/yangkwang/Instana_workshop/blob/main/preparation/manage-to-on-ubuntu.md).
 
 ### Lunch - 60 min
 
@@ -55,7 +55,7 @@ Lab Information:
 ### Lab 1.1
 
 - Install Instana Backend (Server) - 60 min
-  ([Lab 1.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#lab-11--install-instana-server-manually))
+  Work on Server VM: ([Lab 1.1 Instructions](https://github.com/yangkwang/Instana_workshop/blob/main/part-1/lab-part1.md#lab-11--install-instana-server-manually))
 
 ### Tea break - 30 min
 
