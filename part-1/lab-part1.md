@@ -248,6 +248,8 @@ sudo instana init
 ```
 It will be an interactive user experience, let’s go through it with the proper values, like this:
 
+> Note: please append "nip.io" for your FQDN.
+
 <picture>
   <img alt="image" src="./assets/images/Instana-init.png">
 </picture>
