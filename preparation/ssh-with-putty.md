@@ -1,5 +1,7 @@
 # Access VM using putty with ssh key
 
+To download putty, [here](https://www.putty.org/)
+
 1. Launch PuTTYgen
 2. Select "Import Key" from the "Conversions" menu.
 
