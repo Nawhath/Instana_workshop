@@ -157,6 +157,16 @@ kubectl get pod -n robot-shop
 </picture>
 
 
+If there is a need to re-do the helm install for Robot-shop
+
+```sh
+helm list -n robot-shop
+```
+```sh
+helm delete robot-shop -n robot-shop
+```
+
+
 
 > Please note that if we use our exposed EUM endpoint at https://\<IP\>:446/eum/, instead of the internal endpoint at http://\<IP\>:2999, there is a small bug in the Robot Shop app around how to inject the “eum.url” at this line of code, when we expose the EUM endpoint at https://\<URL>:\<port\>/eum/ - Stripping the ending slash will cause no data on EUM dashboard in this case:
 
