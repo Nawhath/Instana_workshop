@@ -158,7 +158,7 @@ kubectl get pod -n robot-shop
 
 
 
-If there is a need to re-do the helm install for Robot-shopi, you can list and follow by the helm delete.
+If there is a need to re-do the helm install for Robot-shop, you can list and follow by the helm delete.
 
 ```sh
 helm list -n robot-shop
