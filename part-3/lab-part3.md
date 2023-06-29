@@ -1054,7 +1054,16 @@ Pick “Infrastructure & Platforms” as the Data Source:
 feature "beeinstana" {
   enabled=true
 }
+feature "infraEntityExplore" {
+  enabled = true
+}
 ```
+
+One the setting.hcl is updated, do instana update
+```sh
+instana update
+```
+
 
 <picture>
   <img alt="image3" src="./assets/images/infraPlatform.png">
