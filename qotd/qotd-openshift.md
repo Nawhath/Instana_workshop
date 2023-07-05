@@ -1,8 +1,9 @@
-# Access VM using putty with ssh key
 
 The git url for qotd helm deployment is [here](https://gitlab.com/quote-of-the-day/quote-of-the-day/-/blob/master/helm_deployment.md)
 
-## Installation command syntax
+## To get familiar with helm installation command syntax
+
+To jump to the installation, [here](https://github.com/yangkwang/Instana_workshop/blob/main/qotd/qotd-openshift.md#openshift-3x4x-installation)
 
 The basic command to install a helm chart is:
 
