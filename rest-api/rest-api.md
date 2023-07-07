@@ -14,7 +14,7 @@ curl -k --request GET --url "https://<Instana server>//api/infrastructure-monito
 ```
 
 
-# Smaple Postman
+# Sample Postman
 
 <picture>
   <img alt="image" src="./assets/images/Postman.png">
