@@ -233,6 +233,10 @@ To see details about why a component is Not Ready run the following command, whe
 oc get <component> -o yaml
 ```
 
+<picture>
+  <img alt="image" src="./assets/images/CompleteDeployed.png">
+</picture>
+
 ## Log in to the IBM Cloud Pak Automation console
 
 Find the password for the admin username by running the following command:
