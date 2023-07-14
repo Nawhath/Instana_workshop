@@ -250,7 +250,8 @@ oc get route -n cp4waiops cpd -o jsonpath='{.spec.host}'
 Enter the URL in your browser to open the IBM Cloud Pak Automation console and log in with a username of admin and the password that you found in the previous step.
 
 
-> Note: Increase the Storage Size of Kafka to 120GB
+## Increase the Storage Size of Kafka
+
 ```sh
 oc patch automationbase/automationbase-sample --type merge -p '{"spec":{"kafka":{"kafka":{"storage":{"size":"120Gi"}}}}}'
 ```
