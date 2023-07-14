@@ -202,9 +202,152 @@ All pod in Common Services should be Running and Completed.
 oc get pod -n ibm-common-services
 ```
 
+Verify your installation.
+
+Run the following command to check that the PHASE of your installation is Updating.
+
+```sh
+oc get installations.orchestrator.aiops.ibm.com -n cp4waiops
+```
+
+Example output:
+
+<picture>
+  <img alt="image" src="./assets/images/phaseUpdate.png">
+</picture>
+
+It takes around 60-90 minutes for the installation to complete (subject to the speed with which images can be pulled). When installation is complete and successful, the PHASE of your installation changes to Running. If your installation phase does not change to Running, then use the following command to find out which components are not ready:
+
+```sh
+oc get installation.orchestrator.aiops.ibm.com -o yaml | grep 'Not Ready'
+```
+Example output:
+
+<picture>
+  <img alt="image" src="./assets/images/ComponenetNotReady.png">
+</picture>
+
+To see details about why a component is Not Ready run the following command, where <component> is the component that is not ready, for example zenservice.
+
+```sh
+oc get <component> -o yaml
+```
+
+## Log in to the IBM Cloud Pak Automation console
+
+Find the password for the admin username by running the following command:
+
+```sh
+oc -n ibm-common-services get secret platform-auth-idp-credentials -o jsonpath='{.data.admin_password}' | base64 -d
+```
+
+Find the URL to access the IBM Cloud Pak Automation console with the following command.
+
+```sh
+oc get route -n cp4waiops cpd -o jsonpath='{.spec.host}'
+```
+
+Enter the URL in your browser to open the IBM Cloud Pak Automation console and log in with a username of admin and the password that you found in the previous step.
+
+
 > Note: Increase the Storage Size of Kafka to 120GB
 ```sh
 oc patch automationbase/automationbase-sample --type merge -p '{"spec":{"kafka":{"kafka":{"storage":{"size":"120Gi"}}}}}'
+```
+
+## Create a network policy for log anomaly detection
+
+If you plan to use log anomaly, run the following script in the iaf-flink cluster before you create log connections. Replace the AIOPS_NAMESPACE value with the name of the project in which Cloud Pak for Watson AIOps is installed.
+
+```sh
+AIOPS_NAMESPACE="cp4waiops"
+cat << EOF | oc apply -n $AIOPS_NAMESPACE -f -
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  labels:
+    app: flink
+    cluster: cp4waiops-eventprocessor-eve-29ee-ep
+    component: taskmanager
+  name: cp4waiops-eventprocessor-eve-29ee-ep-tm-patch
+spec:
+  egress:
+  - {}
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: flink
+          cluster: cp4waiops-eventprocessor-eve-29ee-ep
+          component: taskmanager
+    - podSelector:
+        matchLabels:
+          app: flink
+          cluster: cp4waiops-eventprocessor-eve-29ee-ep
+          component: jobmanager
+  - ports:
+    - port: 9248
+      protocol: TCP
+    - port: 6122
+      protocol: TCP
+    - port: 6121
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app: flink
+      cluster: cp4waiops-eventprocessor-eve-29ee-ep
+      component: taskmanager
+  policyTypes:
+  - Ingress
+  - Egress
+EOF
+
+cat << EOF | oc apply -n $AIOPS_NAMESPACE -f -
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  labels:
+    app: flink
+    cluster: cp4waiops-eventprocessor-eve-29ee-ep
+    component: jobmanager
+  name: cp4waiops-eventprocessor-eve-29ee-ep-jm-patch
+spec:
+  egress:
+  - {}
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: flink
+          cluster: cp4waiops-eventprocessor-eve-29ee-ep
+          component: taskmanager
+    - podSelector:
+        matchLabels:
+          app: flink
+          cluster: cp4waiops-eventprocessor-eve-29ee-ep
+          component: jobmanager
+  - ports:
+    - port: 8081
+      protocol: TCP
+    - port: 6123
+      protocol: TCP
+    - port: 6125
+      protocol: TCP
+    - port: 8080
+      protocol: TCP
+    - port: 6124
+      protocol: TCP
+    - port: 9249
+      protocol: TCP
+  podSelector:
+    matchLabels:
+      app: flink
+      cluster: cp4waiops-eventprocessor-eve-29ee-ep
+      component: jobmanager
+  policyTypes:
+  - Ingress
+  - Egress
+EOF
 ```
 
 
