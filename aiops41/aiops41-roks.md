@@ -255,6 +255,19 @@ Enter the URL in your browser to open the IBM Cloud Pak Automation console and l
 oc patch automationbase/automationbase-sample --type merge -p '{"spec":{"kafka":{"kafka":{"storage":{"size":"120Gi"}}}}}'
 ```
 
+Run one of the following commands to increase the storage allocation for Kafka.
+For production deployments:
+```sh
+oc patch kafka/iaf-system --type merge -p '{"spec":{"kafka":{"storage":{"size":"100Gi"}}}}'
+```
+
+For starter deployments:
+```sh
+oc patch kafka/iaf-system --type merge -p '{"spec":{"kafka":{"storage":{"size":"60Gi"}}}}'
+```
+
+
+
 ## Create a network policy for log anomaly detection
 
 If you plan to use log anomaly, run the following script in the iaf-flink cluster before you create log connections. Replace the AIOPS_NAMESPACE value with the name of the project in which Cloud Pak for Watson AIOps is installed.
