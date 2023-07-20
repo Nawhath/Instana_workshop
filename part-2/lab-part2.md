@@ -524,6 +524,11 @@ kubectl get pod -n instana-agent
   <img alt="image3" src="./assets/images/k8sPod.png">
 </picture>
 
+If there is a need to upgrade the agent in Kubenetes, try this (Not tested yet):
+```sh
+helm upgrade instana-agent --repo https://agents.instana.io/helm -namespace instana-agent --set zone.name='SmallKindK8s'
+```
+
 ## 3. skip 
 
 ## 4. skip
