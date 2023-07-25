@@ -159,7 +159,7 @@ Example:
 MUkPkKCPgeCpTrwNieeAn19lLePvFKUzgM9Y8Dp5
 ```
 
-Generate the Platform UI API Key:
+# Generate the Platform UI API Key:
 ```sh
 ZENAPIKEY=$(echo "admin:MUkPkKCPgeCpTrwNieeAn19lLePvFKUzgM9Y8Dp5" | base64 -w 0)
 ```
@@ -210,6 +210,65 @@ curl "https://cpd-cp4waiops.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee
 
 
 Configuring the for RESTful DSA data source
+
+- AIOPS_HandleAction - This file defines the wrapper that is used when IBM Cloud Pak for Watson AIOps invokes an action in IBM Tivoli Netcool/Impact.
+
+- AIOPS_Mappings - This file defines how events are sent, and mapped, to IBM Cloud Pak for Watson AIOps.
+
+- AIOPS_Utils - This file lists the APIs that are used for communicating with IBM Cloud Pak for Watson AIOps.
+
+<picture>
+  <img alt="image" src="./assets/images/AIOPSPolicies.png">
+</picture>
+
+
+Update AIOPS Data Model:
+
+<picture>
+  <img alt="image" src="./assets/images/AIOPSPolicies.png">
+</picture>
+
+
+Get the certificate for CP4AIOPs:
+
+```sh
+openssl s_client -showcerts -servername cpd-cp4waiops.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-osa.containers.appdomain.cloud -connect cpd-cp4waiops.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-osa.containers.appdomain.cloud:443 < /dev/null > ~/cp4aiops.cert
+```
+
+Cut cp4aiops.cert to look as follow:
+
+<picture>
+  <img alt="image" src="./assets/images/cp4aiopsCert.png">
+</picture>
+
+Importing the certificate chain into the trust store of Impact [Ref](https://www.ibm.com/docs/en/tivoli-netcoolimpact/7.1?topic=security-enabling-ssl-connections-external-servers).
+
+```sh
+/opt/IBM/tivoli/impact/sdk/bin/keytool -importcert -alias cp4aiopscert -file ~/cp4aiops.cert -keystore /opt/IBM/tivoli/impact/wlp/usr/servers/NCI/resources/security/trust.jks -storepass Netc00l
+```
+
+Restart Impact Server and GUI.
+
+Configure the AIops Data Model.
+
+To get the host Name of AIOps:
+```sh
+oc get route -n cp4waiops cpd  -o jsonpath='{.spec.host}' && echo
+```
+
+Hostname:
+```sh
+cpd-cp4waiops.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-osa.containers.appdomain.cloud
+```
+
+Authorization:
+```sh
+ZenApiKey YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo=
+```
+
+<picture>
+  <img alt="image" src="./assets/images/DataModelConfig.png">
+</picture>
 
 
 
