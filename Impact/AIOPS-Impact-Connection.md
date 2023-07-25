@@ -224,11 +224,7 @@ Configuring the for RESTful DSA data source
 
 Update AIOPS Data Model:
 
-<picture>
-  <img alt="image" src="./assets/images/AIOPSPolicies.png">
-</picture>
-
-
+For Impact to connect to CP4AIOPs, the certification need to be imported.
 Get the certificate for CP4AIOPs:
 
 ```sh
@@ -271,6 +267,100 @@ ZenApiKey YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo=
 </picture>
 
 
+Verifying the connection
+
+Template for policy to create an alert in CP4AIOPS.
+```sh
+Load('AIOPS_Utils');
+occurrenceTime = new Date();
+var myEventInstance = "<instance_name>";
+var event = {
+    deduplicationKey: myEventInstance + " <event_name>",
+    sender: {
+      service: "<service>",
+      name: "<sender_name>",
+      type: "Success",
+      location: "<location>",
+      cluster: "\"quotes\"",
+      controller: "<script>alert(\"<sender_controller>\");</script>"
+    },
+    resource: {
+      name: myEventInstance + "<resource_name>",
+      type: myEventInstance + " <type>",
+      service: myEventInstance + " <service>",
+      location: "<location>",
+      controller: "<resource_controller>",
+      interface: "<interface>",
+      ipAddress: "<ip_address>",
+      hostname: "<hostname>",
+      cluster: "<cluster>"
+    },
+    type: {
+      classification: myEventInstance + " <classification>",
+      eventType: "<event_type>"
+    },
+    severity: 6,
+    summary: myEventInstance + " <summary>",
+    occurrenceTime: occurrenceTime.toISOString()
+  };
+var res = aiopsUtils.postEventDSA( "AIOps-<UUID>" , event );
+Log("res: " + res);
+```
+
+To obtain the UUID value to use for the aiopsUtils.postEventDSA( "AIOps-<UUID>" , event ) setting, run the following command:
+
+jq is needed to run the command. To install [jq](https://jqlang.github.io/jq/download/)
+
+In Ubuntu:
+```sh
+sudo apt-get install jq
+
+```sh
+oc get connectorconfiguration -o json | jq -r '.items[] | (.metadata.name + " - " + .metadata.uid)'
+```
+
+Sample:
+```sh
+techzoneimpact - 735e7fdd-5ccc-490c-9037-4e9d157d00d5
+```
+
+Sample Policy:
+```sh
+Load('AIOPS_Utils');
+occurrenceTime = new Date();
+var myEventInstance = "MyInstance";
+var event = {
+    deduplicationKey: myEventInstance + " My Event",
+    sender: {
+      service: "My Service",
+      name: "Me",
+      type: "Success",
+      location: "My Location",
+      cluster: "\"quotes\"",
+      controller: "<script>alert(\"My Controller\");</script>"
+    },
+    resource: {
+      name: myEventInstance + "My Resource name",
+      type: myEventInstance + " My Type",
+      service: myEventInstance + " My Service",
+      location: "My Location",
+      controller: "My Controller",
+      interface: "My interface",
+      ipAddress: "My IP Address",
+      hostname: "My Hostname",
+      cluster: "My Cluster"
+    },
+    type: {
+      classification: myEventInstance + " My Classification",
+      eventType: "My EventType"
+    },
+    severity: 6,
+    summary: myEventInstance + " My Summary",
+    occurrenceTime: occurrenceTime.toISOString()
+  };
+var res = aiopsUtils.postEventDSA( "techzoneimpact - 735e7fdd-5ccc-490c-9037-4e9d157d00d5" , event );
+Log("res: " + res);
+```
 
 
 
