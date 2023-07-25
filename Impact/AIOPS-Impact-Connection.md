@@ -69,4 +69,60 @@ Adding Impact Connection:
 
 [Configure the connection in IBM Tivoli Netcool/Impact](https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/4.1.0?topic=connections-configuring-connection-in-tivoli-netcoolimpact)
 
-> Note: 
+> Note: There is an issue with the URL to Impact Server. As the FQDN of Impact is not resolveable, the following is the workaround.Basically, adding ConfigMap that define the FQDN name in the "/etc/host". The created ConfigMap will be added manually in the connector Instance.
+
+Create the ConfigMap:
+
+```sh
+oc -n cp4waiops apply -f - <<EOF
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: custom-hosts
+data:
+  customhosts: |
+    150.238.132.58  itz-060001mysy-ahp0.dte.demo.ibmcloud.com
+EOF
+```
+
+Add Volume to "Impact-connector" deployment. Need to find the right time to add and save as this deployment will auto update regularly.
+
+```sh
+        - name: hosts-volume
+          configMap:
+            name: custom-hosts
+            items:
+              - key: customhosts
+                path: hosts
+```
+
+<picture>
+  <img alt="image" src="./assets/images/UpdateVolume.png">
+</picture>
+
+
+Update the Volume Mount:
+
+```sh
+            - name: hosts-volume
+              mountPath: /etc/hosts
+              subPath: hosts
+```
+
+<picture>
+  <img alt="image" src="./assets/images/VolumeMount.png">
+</picture>
+
+The impact-connector pod will has the "/etc/hosts" updated:
+
+<picture>
+  <img alt="image" src="./assets/images/hostsatPod.png">
+</picture>
+
+
+The Impact Connector will be Running:
+<picture>
+  <img alt="image" src="./assets/images/ImpactConnectorRunning.png">
+</picture>
+
+
