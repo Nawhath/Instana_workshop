@@ -67,7 +67,6 @@ Adding Impact Connection:
   <img alt="image" src="./assets/images/Done.png">
 </picture>
 
-[Configure the connection in IBM Tivoli Netcool/Impact](https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/4.1.0?topic=connections-configuring-connection-in-tivoli-netcoolimpact)
 
 > Note: There is an issue with the URL to Impact Server. As the FQDN of Impact is not resolveable, the following is the workaround.Basically, adding ConfigMap that define the FQDN name in the "/etc/host". The created ConfigMap will be added manually in the connector Instance.
 
@@ -124,5 +123,86 @@ The Impact Connector will be Running:
 <picture>
   <img alt="image" src="./assets/images/ImpactConnectorRunning.png">
 </picture>
+
+
+
+Configuring a connection in IBM Tivoli Netcool/Impact for IBM Cloud Pak for Watson AIOps [Ref](https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/4.1.0?topic=connections-configuring-connection-in-tivoli-netcoolimpact)
+
+Find CP4AIOPS cluster address:
+```sh
+oc get route -n ibm-common-services cp-console -o jsonpath='{.spec.host}' && echo
+```
+
+Example:
+cp-console.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-osa.containers.appdomain.cloud
+
+To get the password for admin user
+```sh
+oc -n ibm-common-services get secret platform-auth-idp-credentials -o jsonpath='{.data.admin_password}' | base64 -d && echo
+```
+
+Generating API key [Ref](https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/4.1.0?topic=apis-accessing#apikey)
+
+Goto Prfile Setting:
+
+<picture>
+  <img alt="image" src="./assets/images/ProfileSetting.png">
+</picture>
+
+
+<picture>
+  <img alt="image" src="./assets/images/ClickGenAPI.png">
+</picture>
+
+Example:
+MUkPkKCPgeCpTrwNieeAn19lLePvFKUzgM9Y8Dp5
+
+Generate the Platform UI API Key:
+```sh
+ZENAPIKEY=$(echo "admin:MUkPkKCPgeCpTrwNieeAn19lLePvFKUzgM9Y8Dp5" | base64 -w 0)
+```
+
+```sh
+echo $ZENAPIKEY
+```
+
+Sample:
+YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo=
+
+
+Construct your Authorization header with the Platform UI API Key.
+
+Sample:
+--header "Authorization: ZenApiKey YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo="
+
+Run the following cURL command:
+```sh
+curl "https://<Endpoint URL>" --header 'Content-Type: application/json' --header "Authorization: ZenApiKey <ZenApiKey>" --header 'X-TenantID: cfd95b7e-3bc7-4006-a4a8-a73a79c71255' --insecure
+```
+
+[The Endpoint URL as specified on the API page of the service that you want to use, for example, you can find the Endpoint URL for metrics](https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/4.1.0?topic=apis-metric-api)
+
+Example: (Not working)
+curl "https://cpd-aiops.apps.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-osa.containers.appdomain.cloud/aiops/api/app/metric-api/v1/metrics" --header 'Content-Type: application/json' --header "Authorization: ZenApiKey YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo=" --header 'X-TenantID: cfd95b7e-3bc7-4006-a4a8-a73a79c71255' --insecure
+
+You can verify that your API key works by running the following command:
+```sh
+curl -kv -H "Authorization: ZenApiKey ${ZenApiKey}" -H "x-tenant-id: ${tenant_id}"  "https://${CPD_ROUTE}/aiops/api/issue-resolution/v1/alerts/"
+```
+
+Example:
+```sh
+curl "https://cpd-cp4waiops.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-osa.containers.appdomain.cloud" --header 'Content-Type: application/json' --header "Authorization: ZenApiKey YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo="  --header 'X-TenantID: cfd95b7e-3bc7-4006-a4a8-a73a79c71255' --insecure
+```
+>Not sure whether the following is correct??
+<picture>
+  <img alt="image" src="./assets/images/Verification.png">
+</picture>
+
+
+Configuring the for RESTful DSA data source
+
+
+
 
 
