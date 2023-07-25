@@ -155,7 +155,9 @@ Goto Prfile Setting:
 </picture>
 
 Example:
+```sh
 MUkPkKCPgeCpTrwNieeAn19lLePvFKUzgM9Y8Dp5
+```
 
 Generate the Platform UI API Key:
 ```sh
@@ -167,13 +169,17 @@ echo $ZENAPIKEY
 ```
 
 Sample:
+```sh
 YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo=
+```
 
 
 Construct your Authorization header with the Platform UI API Key.
 
 Sample:
+```sh
 --header "Authorization: ZenApiKey YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo="
+```
 
 Run the following cURL command:
 ```sh
@@ -183,7 +189,10 @@ curl "https://<Endpoint URL>" --header 'Content-Type: application/json' --header
 [The Endpoint URL as specified on the API page of the service that you want to use, for example, you can find the Endpoint URL for metrics](https://www.ibm.com/docs/en/cloud-paks/cloud-pak-watson-aiops/4.1.0?topic=apis-metric-api)
 
 Example: (Not working)
+```sh
 curl "https://cpd-aiops.apps.itzroks-060001mysy-92jnys-6ccd7f378ae819553d37d5f2ee142bd6-0000.jp-osa.containers.appdomain.cloud/aiops/api/app/metric-api/v1/metrics" --header 'Content-Type: application/json' --header "Authorization: ZenApiKey YWRtaW46TVVrUGtLQ1BnZUNwVHJ3TmllZUFuMTlsTGVQdkZLVXpnTTlZOERwNQo=" --header 'X-TenantID: cfd95b7e-3bc7-4006-a4a8-a73a79c71255' --insecure
+```
+
 
 You can verify that your API key works by running the following command:
 ```sh
