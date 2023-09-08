@@ -406,10 +406,6 @@ com.instana.plugin.host:
 EOF
 ```
 
-```sh
-sudo instana update -f settings.hcl
-```
-
 if there is a need to reset password
 ```sh
 instana configure admin -p <new password>
