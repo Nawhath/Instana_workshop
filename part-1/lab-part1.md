@@ -102,7 +102,7 @@ Make sure the netcat is installed
 
 ```sh
 sudo apt-get install netcat
-nc -vz auth-infra.instana.io 443
+nc -vz artifact-public.instana.io 443
 ```
 
 Mount or simply create some data folders for simplicity purposes
@@ -231,7 +231,7 @@ To avoid getting major updates during automated upgrades, run the following comm
 ```sh
 cat >/etc/apt/preferences.d/instana-console <<EOF
 Package: instana-console
-Pin: version 247-0-1
+Pin: version 247-2-1
 Pin-Priority: 1000
 EOF
 ```
@@ -260,7 +260,7 @@ After around 30 min, depending on your download speed as it will download all In
   <img alt="image" src="./assets/images/init-complete.png">
 </picture>
 
-> Note: Please record of the username and password.
+> Note: Please record of the username and password in the [Box](https://ibm.ent.box.com/file/1299903558968).
 
 If there is a need to re-initialise Instana, you may force a init again.
 
@@ -271,7 +271,13 @@ instana init --force
 ## 6. First login
 
 By following the info printed out once the installation is done, we can login to Instana:
-Launch from browser: https://<Instana Server IP>.nip.io
+
+Launch from browser: 
+
+```sh
+https://<Instana Server IP>.nip.io
+```
+
 
 <picture>
   <img alt="image" src="./assets/images/firstlogin-1.png">
