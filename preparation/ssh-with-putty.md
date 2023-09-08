@@ -30,42 +30,48 @@ To download putty, [here](https://www.putty.org/)
  
 6. Close PuTTYgen
 
-7. Launch PuTTY
+7. Check IP Address for the "Manage-From" host.
 
-8. Enter IP Address of your "Target" host and use port 2223.
-   Eneter "target-\<YOUR Target IP Address\>" in "Saved Sessions"
+<picture>
+  <img alt="image" src="./assets/images/manageFromIP.png">
+</picture>
+
+8. Launch PuTTY
+
+9. Enter IP Address of your "Manage-From" host and use port 2223.
+   Enter "Manage-From-\<YOUR Manage-From IP Address\>" in "Saved Sessions"
 
 <picture>
   <img alt="image" src="./assets/images/puttyConfig1.png">
 </picture>
 
-9.Now, need to set the converted SSH key from PuTTYgen.
+10.Now, need to set the converted SSH key from PuTTYgen.
   On the left panel, navigate to Connection-\>SSH-\>Auth-\>Credentials
 
 <picture>
   <img alt="image" src="./assets/images/setPrivateKey.png">
 </picture>
 
-10. Browse and select your save private key "Target-puttySSHkey".
+11. Browse and select your save private key "Manage-From-puttySSHkey".
    Same for both "Private key" and "Certificate" enteries.
 
 <picture>
   <img alt="image" src="./assets/images/selectAndOpenPPK.png">
 </picture>
 
-11. Navigate to "Session" on the left panel and click "Save"
+12. Navigate to "Session" on the left panel and click "Save"
 
 <picture>
   <img alt="image" src="./assets/images/saveSession.png">
 </picture>
 
-12. Click "Open", a terminal will be open. Enter "itzuser" on login as.
+13. Click "Open", a terminal will be open. Enter "itzuser" on login as.
 
 <picture>
   <img alt="image" src="./assets/images/login.png">
 </picture>
 
 
-13. Repeat steps 1-11 for another VM, the Instana Server, using "Server-ssh-key.pem".
+14. Repeat steps 1-11 for another VM, the Instana Server, using "Server-ssh-key.pem".
 
 
