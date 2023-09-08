@@ -215,7 +215,7 @@ should see output like:
 Client Version: v1.25.2
 Kustomize Version: v4.5.7
 ```sh
-kubectl version --short --client
+kubectl version --client
 ```
 
 Helm CLI
