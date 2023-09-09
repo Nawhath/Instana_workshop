@@ -153,7 +153,7 @@ metadata:
   labels:
     service: load
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       service: load
