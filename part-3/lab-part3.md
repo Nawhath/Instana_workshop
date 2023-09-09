@@ -103,7 +103,7 @@ Built-in events are predefined health signatures based on integrated algorithms 
   <img alt="image3" src="./assets/images/eventRules.png">
 </picture>
 
-4. Let’s purposely “inject” some issues
+4. Let’s purposely “inject” some issues. High call rate.
 
 We can achieve that by updating the “load-gen” we installed in “Lab2 – Website Monitoring”:
 
@@ -118,7 +118,42 @@ metadata:
   labels:
     service: load
 spec:
-  replicas: 1
+  replicas: 2
+  selector:
+    matchLabels:
+      service: load
+  template:
+    metadata:
+      labels:
+        service: load
+    spec:
+      containers:
+      - name: load
+        env:
+          - name: HOST
+            value: "http://web:8080/"
+          - name: NUM_CLIENTS
+            value: "30"
+          - name: SILENT
+            value: "1"
+          - name: ERROR
+            value: "1"                     # enable it now
+        image: robotshop/rs-load:latest
+EOF
+```
+
+To clear the issue,
+
+```sh
+kubectl -n robot-shop apply -f - <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: load
+  labels:
+    service: load
+spec:
+  replicas: 2
   selector:
     matchLabels:
       service: load
@@ -137,10 +172,12 @@ spec:
           - name: SILENT
             value: "1"
           - name: ERROR
-            value: "1"                     # enable it now
+            value: "0"                     # enable it now
         image: robotshop/rs-load:latest
 EOF
 ```
+
+
 5. Let’s see what Instana has detected
 
 Click the Application icon, filter by our application’s name, and click to open the AP dashboard:
