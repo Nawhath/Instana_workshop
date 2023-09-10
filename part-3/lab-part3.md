@@ -118,7 +118,7 @@ metadata:
   labels:
     service: load
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       service: load
