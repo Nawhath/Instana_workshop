@@ -72,6 +72,5 @@ To download putty, [here](https://www.putty.org/)
 </picture>
 
 
-14. Repeat steps 1-11 for another VM, the Instana Server, using "Server-ssh-key.pem".
-
+14. Repeat steps 1-11 for another VM, using "Manage-To-Target-ssh-key_ID0.pem".
 
